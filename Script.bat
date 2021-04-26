@@ -1,3 +1,4 @@
+@echo off
 REM *** Disable Start-up Telemetry to Improve Startup  Memory Usage ***
 
 schtasks /end /tn "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator"
@@ -240,6 +241,9 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SENS" /v "Start" /
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TabletInputService" /v "Start" /t REG_DWORD /d "4" /f
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Themes" /v "Start" /t REG_DWORD /d "4" /f
 
+echo Enabling Hardware Accelerated GPU Scheduling
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers" /F /V "HwSchMode" /T REG_DWORD /d "2"
+
 echo Adding more ram for applications in system memory caching to improve microstuttering
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v "LargeSystemCache" /t REG_DWORD /d "1" /f
 
@@ -249,10 +253,10 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management
 echo Disabling Windows attempt to save as much RAM as possible, such as sharing pages for images, copy-on-write for data pages, and compression
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v "DisablePagingCombining" /t REG_DWORD /d "1" /f
 
-echo Disabling system energy-saving technique that reduces CPU power consumption by reducing the precision of software timers to allow the synchronization of process wake-ups, minimizing the number of times the CPU is forced to perform the relatively power-costly operation of entering and exiting idle states
+echo Disabling System energy-saving technique that reduces CPU power consumption by reducing the precision of software timers to allow the synchronization of process wake-ups, minimizing the number of times the CPU is forced to perform the relatively power-costly operation of entering and exiting idle states
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v "CoalescingTimerInterval" /t REG_DWORD /d "0" /f reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v "CoalescingTimerInterval" /t REG_DWORD /d "0" /f reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v "CoalescingTimerInterval" /t REG_DWORD /d "0" /f reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Executive" /v "CoalescingTimerInterval" /t REG_DWORD /d "0" /f reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager" /v "CoalescingTimerInterval" /t REG_DWORD /d "0" /f reg add "HKLM\SYSTEM\CurrentControlSet\Control\Power\ModernSleep" /v "CoalescingTimerInterval" /t REG_DWORD /d "0" /f reg add "HKLM\SYSTEM\CurrentControlSet\Control\Power" /v "CoalescingTimerInterval" /t REG_DWORD /d "0" /f reg add "HKLM\SYSTEM\CurrentControlSet\Control" /v "CoalescingTimerInterval" /t REG_DWORD /d "0" /f
 
-echo Disable automatic maintenance
+echo Disable Automatic maintenance
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance" /v "MaintenanceDisabled" /t REG_DWORD /d "1" /f
 
 echo Disable Preemption
@@ -287,6 +291,13 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Peernet" /v "Disabled" /t REG_DWORD /d
 
 echo Turn off data execution prevention
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /v "DEPOff" /t REG_DWORD /d "1" /f
+
+echo Disable DistributeTimers
+Reg.exe delete "HKLM\SYSTEM\ControlSet001\Control\Session Manager\kernel" /v "DistributeTimers" /f
+Reg.exe add "HKLM\SYSTEM\ControlSet001\Control\Session Manager\kernel" /f
+
+echo Applying Optimal Win32Priority for balanced FPS and Latency
+reg add "HKLM\SYSTEM\ControlSet001\Control\PriorityControl" /v "Win32PrioritySeparation" /t REG_DWORD /d "38" /f
 
 echo Enabling Normal Priority for Fortnite
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\FortniteClient-Win64-Shipping.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "2" /f
@@ -354,41 +365,25 @@ sc start STR
 
 cls
 @echo off
-del /s /f /q c:\windows\temp\*.*
+color f
+/s /f /q c:\windows\temp\*.*
 rd /s /q c:\windows\temp
 md c:\windows\temp
 del /s /f /q C:\WINDOWS\Prefetch
 del /s /f /q %temp%\*.*
 rd /s /q %temp%
 md %temp%
-del c:\WIN386.SWP
-@echo off
-color 0a
-cls
-color b
-del /s /f /q c:\windows\temp\*.*
-rd /s /q c:\windows\temp
-md c:\windows\temp
-del /s /f /q C:\WINDOWS\Prefetch
-del /s /f /q %temp%\*.*
-rd /s /q %temp%
-md %temp%
+deltree /y c:\windows\tempor~1
+deltree /y c:\windows\temp
+deltree /y c:\windows\tmp
+deltree /y c:\windows\ff*.tmp
+deltree /y c:\windows\history
+deltree /y c:\windows\cookies
+deltree /y c:\windows\recent
+deltree /y c:\windows\spool\printers
 del c:\WIN386.SWP
 cls 
-FOR /F "tokens=1, 2 * " %%V IN ('bcdedit') DO SET adminTest=%%V
-IF (%adminTest%)==(Access) goto noAdmin
-for /F " tokens=*" %%G in ('wevtutil.exe el') DO (call :do_clear "%%G")
-echo.
-echo Event Logs have been cleared! ^<press any key^>
-goto theEnd
-:do_clear
-echo clearing %1
-wevtutil.exe cl %1
-goto finishclean
-:finishclean
-set mSpinner=%mSpinner%.
-if %mSpinner%'==....' (set mSpinner=.)
-cls
+
 echo.
 echo Finishing cleaning Temporary Files%mSpinner%
 echo.
@@ -448,10 +443,26 @@ powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/46
 powercfg -import "C:\Windows\SanGraphicPOWERPLAN.pow" f42fe57c-e762-287e-984a-4e9613d9e9d3
 del /f "C:\Windows\SanGraphicPOWERPLAN.pow"
 powercfg -SETACTIVE "f42fe57c-e762-287e-984a-4e9613d9e9d3"
+
+c;s
+echo 1 If your Nvidia
+echo 2 If your AMD
+
+SET /P choice=  [101;44m1 / 2:[0m  
+IF /I "%choice%"=="1" goto :NV
+IF /I "%choice%"=="2" goto :AMD
+
+:NV
+powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/836340936865742918/nvidiaProfileInspector.exe' -OutFile C:\Windows\nvidiaProfileInspector.exe
+powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/836340587782996038/nvprofile.nip' -OutFile C:\Windows\nvprofile.nip
+start "" /wait "C:\Windows\nvidiaProfileInspector.exe" "C:\Windows\nvprofile.nip"
+pause
+goto :AMD
+:AMD
 Echo. [101;41mRestart Your PC!.[0m
 echo.
 SET msgboxTitle=QuickBoost by @SanGraphic
-SET msgboxBody=Gaming Tweaks Have been Applied, Please Restart your PC!
+SET msgboxBody=Gaming Tweaks Have been Applied, Please Restart your PC & Leave a feedback on the discord <3
 SET tmpmsgbox=%temp%\~tmpmsgbox.vbs
 IF EXIST "%tmpmsgbox%" DEL /F /Q "%tmpmsgbox%"
 ECHO msgbox "%msgboxBody%",0,"%msgboxTitle%">"%tmpmsgbox%"

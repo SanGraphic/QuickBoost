@@ -7,6 +7,5 @@ Automated Windows Tweaking Utility
 - Disable (most) System Loggings
 - Performance & Memory Usage Tweaks
 - Remove Temporary Files
-+ Auto-update to use latest script 
+- Auto-update to use latest script 
 
-and much more!

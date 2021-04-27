@@ -1,5 +1,5 @@
 # QuickBoost
-Automated Windows Tweaking Utility (Work in Progress)
+## Automated Windows Tweaking Utility (Work in Progress)
 
 ⚠ make a system restore point incase anything goes wrong ⚠
 

@@ -394,6 +394,17 @@ ping 127.0.0.1 -n 3 >nul
 del /q /s %systemdrive%\$Recycle.bin\*
 for /d %%x in (%systemdrive%\$Recycle.bin\*) do @rd /s /q "%%x"
 cls
+powershell.exe Remove-Item -Path $env:TEMP -Recurse -Force -ErrorAction SilentlyContinue
+cls
+echo Clearing Epic Games and Fortnite Temporary Files:
+erase /F /S /Q "%SystemRoot%\TEMP*.*"
+for /D %%G in ("%SystemRoot%\TEMP*") do RD /S /Q "%%G"
+for /D %%G in ("%SystemDrive%\Users*") do erase /F /S /Q "%%G\AppData\Local\Temp*.*"
+for /D %%G in ("%SystemDrive%\Users*") do RD /S /Q "%%G\AppData\Local\Temp\"
+powershell -command Remove-Item 'C:\Users\*\AppData\Local\Fortnitegame\saved\Logs' -Recurse -Force
+powershell -command Remove-Item 'C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Logs' -Recurse -Force
+powershell -command Remove-Item 'C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Crashes' -Recurse -Force
+cls
 echo Clearing Log Files From The System
 echo.
 @echo off
@@ -414,14 +425,6 @@ rd /s /q C:\Windows\SoftwareDistribution
 md C:\Windows\SoftwareDistribution
 cls
 echo.
-echo Clearing Epic Games & Fortnite Temporay Files:
-erase /F /S /Q "%SystemRoot%\TEMP*.*"
-for /D %%G in ("%SystemRoot%\TEMP*") do RD /S /Q "%%G"
-for /D %%G in ("%SystemDrive%\Users*") do erase /F /S /Q "%%G\AppData\Local\Temp*.*"
-for /D %%G in ("%SystemDrive%\Users*") do RD /S /Q "%%G\AppData\Local\Temp\"
-powershell -command Remove-Item 'C:\Users\*\AppData\Local\Fortnitegame\saved\Logs' -Recurse -Force
-powershell -command Remove-Item 'C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Logs' -Recurse -Force
-powershell -command Remove-Item 'C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Crashes' -Recurse -Force
 cls
 echo Running Windows Cleaner (cleanmgr.exe)
 start "" /wait "C:\Windows\System32\cleanmgr.exe" /sagerun:50 
@@ -438,8 +441,8 @@ powercfg -SETACTIVE "f42fe57c-e762-287e-984a-4e9613d9e9d3"
 cls
 echo What Brand is Your GPU?
 echo.
-echo   1  If Nvidia
-echo   2  If AMD
+echo choose 1 if Nvidia
+echo choose 2 if AMD
 
 SET /P choice=  [101;44m1 / 2:[0m  
 IF /I "%choice%"=="1" goto :NV

@@ -465,8 +465,8 @@ powercfg -SETACTIVE "f42fe57c-e762-287e-984a-4e9613d9e9d3"
 cls
 echo What Brand is Your GPU?
 echo.
-echo choose 1 if Nvidia
-echo choose 2 if AMD
+echo type 1 if Nvidia
+echo type 2 if AMD
 
 SET /P choice=  [101;44m1 / 2:[0m  
 IF /I "%choice%"=="1" goto :NV

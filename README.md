@@ -1,7 +1,7 @@
 # QuickBoost
 ## Automated Windows Tweaking Utility (Work in Progress)
-compiled by @sangraphic, I did not invent / find these tweaks,
-I simply wrote this free program / scrupt to help people in need.
+compiled by @sangraphic, I did not find most of these tweaks,
+simply wrote this free program / script to help people in need.
 
 ## ⚠ make a system restore point incase anything goes wrong ⚠
 

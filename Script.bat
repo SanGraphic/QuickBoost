@@ -439,7 +439,7 @@ echo.
 @echo off
 cd/
 del *.log /a /s /q /f
-taskkill /f /im explorer.exe
+powershell taskkill /F /IM explorer.exe
 timeout 2 /nobreak>nul
 DEL /F /S /Q /A %LocalAppData%\Microsoft\Windows\Explorer\thumbcache_*.db
 DEL /f /s /q %systemdrive%\*.tmp
@@ -459,7 +459,9 @@ DEL /f /s /q "%userprofile%\Local Settings\Temporary Internet Files\*.*"
 DEL /f /s /q "%userprofile%\Local Settings\Temp\*.*"
 DEL /f /s /q "%userprofile%\recent\*.*"
 timeout 3 /nobreak>nul
-start explorer
+Invoke-Command COMPUTERNAME -command{Stop-Process -ProcessName Explorer}
+Invoke-Command COMPUTERNAME -command{Start-Process -ProcessName Explorer}
+powershell Start explorer.exe
 cls
 @echo
 net stop wuauserv
@@ -514,7 +516,6 @@ explorer.exe %USERPROFILE%\Desktop\QuickBoostOptionalTweaks
 
 
 :end
-start explorer
 cls
 Echo. [101;41mRestart Your PC!.[0m
 echo.

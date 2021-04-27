@@ -116,7 +116,7 @@ cls
 Echo.
 Echo. [101;41mThe Telemetry Tasks has been disabled![0m
 echo.
-timeout 5 >nul
+timeout 2 >nul
 cls
 
 @rem *** Disabling Services for less System Usage ***

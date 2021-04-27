@@ -1,5 +1,5 @@
 # QuickBoost
-## Automated Windows Tweaking Utility (Work in Progress)
+## East to Use Automated Windows Tweaking Utility (Work in Progress)
 compiled by @sangraphic, I did not find most of these tweaks,
 simply wrote this free program / script to help people in need.
 

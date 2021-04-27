@@ -18,7 +18,7 @@ simply wrote this free program / script to help people in need.
 - Remove Temporary Files
 - Auto-update to use latest script 
 
-## What does it Actually do? (Nerd Summury)
+## What does it Actually do? (Nerd Summary)
 - Disable CPU energy-saving technique that reduces CPU power consumption and synchronizing of process wake-ups.
 - Adding more ram for applications in system memory caching to improve microstuttering (Enable LargeSystemCache)
 - Disable Ram saving techniques Windows use (Paging Combining) to improve microstuttering

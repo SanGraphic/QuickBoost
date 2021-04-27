@@ -1,5 +1,5 @@
 @echo off
-REM *** Disable Start-up Telemetry to Improve Startup and Memory Usage ***
+REM *** Disable Start-up Telemetry and Programs to Improve Startup and Memory Usage ***
 schtasks /end /tn "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator"
 schtasks /change /tn "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator" /disable
 schtasks /end /tn "\Microsoft\Windows\Customer Experience Improvement Program\BthSQM"
@@ -76,9 +76,6 @@ schtasks /Change /TN "Microsoft\Windows\Time Synchronization\ForceSynchronizeTim
 schtasks /Change /TN "Microsoft\Windows\Time Synchronization\SynchronizeTime" /Disable
 schtasks /Change /TN "Microsoft\Windows\Windows Error Reporting\QueueReporting" /Disable
 schtasks /Change /TN "Microsoft\Windows\WindowsUpdate\Automatic App Update" /Disable
-
-echo Disable Startup Programs
-echo.
 REG DELETE HKSU\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce /f
 REG DELETE HKSU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /f
 REG DELETE HKSU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies /f
@@ -89,7 +86,7 @@ REG DELETE HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices /f
 REG DELETE HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnceEx /f
 REG DELETE HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /f
 
-@rem *** Remove Data Collection bloatwares ***
+@rem *** Disable Data Collection bloatwares ***
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata" /v PreventDeviceMetadataFromNetwork /t REG_DWORD /d 1 /f
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" /v "AllowTelemetry" /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\MRT" /v DontOfferThroughWUAU /t REG_DWORD /d 1 /f
@@ -100,22 +97,22 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v "AllowTelem
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\AutoLogger-Diagtrack-Listener" /v "Start" /t REG_DWORD /d 0 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\SQMLogger" /v "Start" /t REG_DWORD /d 0 /f
 
-
-@rem *** Disable Settings App bloatware Options ***
+@rem *** Disable Settings App unnecessary and telemetry Options ***
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo" /v Enabled /t REG_DWORD /d 0 /f
 REM - SmartScreen Filter for Store Apps: Disable
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost" /v EnableWebContentEvaluation /t REG_DWORD /d 0 /f
 REM - Let websites provide locally...
 reg add "HKCU\Control Panel\International\User Profile" /v HttpAcceptLanguageOptOut /t REG_DWORD /d 1 /f
 
-@REM WiFi Sense: HotSpot Sharing: Disable
+@REM Disabling Wifi Sense hotspot sharing
 reg add "HKLM\Software\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting" /v value /t REG_DWORD /d 0 /f
 @REM WiFi Sense: Shared HotSpot Auto-Connect: Disable
 reg add "HKLM\Software\Microsoft\PolicyManager\default\WiFi\AllowAutoConnectToWiFiSenseHotspots" /v value /t REG_DWORD /d 0 /f
 
 @REM Change Windows Updates to "Notify to schedule restart"
 reg add "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v UxOption /t REG_DWORD /d 1 /f
-@REM Disable P2P Update downlods outside of local network
+
+@REM Disable Delivery Optimization P2P Update downlods outside of local network
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" /v DODownloadMode /t REG_DWORD /d 0 /f
 
 @echo off
@@ -129,7 +126,7 @@ echo.
 timeout 2 >nul
 cls
 
-@rem *** Disabling Services for less System Usage ***
+@rem *** Disabling unnecessary System Services for less System Usage ***
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\TapiSrv" /v "Start" /t REG_DWORD /d "4" /f
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\FontCache3.0.0.0" /v "Start" /t REG_DWORD /d "4" /f
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\WpcMonSvc" /v "Start" /t REG_DWORD /d "4" /f
@@ -250,7 +247,7 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Themes" /v "Start"
 echo Enabling Hardware Accelerated GPU Scheduling
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers" /F /V "HwSchMode" /T REG_DWORD /d "2"
 
-echo Enabling Full-screen Exclusive
+echo Enabling Full-screen Exclusive for lower input delay
 Reg.exe delete "HKCU\System\GameConfigStore" /v "Win32_AutoGameModeDefaultProfile" /f
 Reg.exe delete "HKCU\System\GameConfigStore" /v "Win32_GameModeRelatedProcesses" /f
 Reg.exe add "HKCU\System\GameConfigStore" /v "GameDVR_DSEBehavior" /t REG_DWORD /d "2" /f
@@ -321,7 +318,7 @@ reg add "HKLM\SYSTEM\ControlSet001\Control\PriorityControl" /v "Win32PrioritySep
 echo Enabling Normal Priority for Fortnite
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\FortniteClient-Win64-Shipping.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "2" /f
 
-echo Disabling Logging 
+echo Disable System Auto-Loggers 
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\WMI\Autologger\AppModel" /v "Start" /t REG_DWORD /d "0" /f 
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\WMI\Autologger\Cellcore" /v "Start" /t REG_DWORD /d "0" /f 
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\WMI\Autologger\Circular Kernel Context Logger" /v "Start" /t REG_DWORD /d "0" /f 
@@ -363,8 +360,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Credssp" /v "DebugLogLevel" /
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v "DisableThirdPartySuggestions" /t REG_DWORD /d "1" /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v "DisableWindowsConsumerFeatures" /t REG_DWORD /d "1" /f
 
-echo.
-echo.
+
 echo Adding Take Ownership to Context menu
 Reg.exe add "HKCR\*\shell\runas" /ve /t REG_SZ /d "Take Ownership" /f
 Reg.exe add "HKCR\*\shell\runas" /v "NoWorkingDirectory" /t REG_SZ /d "" /f
@@ -375,13 +371,10 @@ Reg.exe add "HKCR\Directory\shell\runas" /v "NoWorkingDirectory" /t REG_SZ /d ""
 Reg.exe add "HKCR\Directory\shell\runas\command" /ve /t REG_SZ /d "cmd.exe /c takeown /f \"%%1\" /r /d y && icacls \"%%1\" /grant administrators:F /t" /f
 Reg.exe add "HKCR\Directory\shell\runas\command" /v "IsolatedCommand" /t REG_SZ /d "cmd.exe /c takeown /f \"%%1\" /r /d y && icacls \"%%1\" /grant administrators:F /t" /f
 
-
-
-echo.
 cls
 
 @echo off
-echo Applying BCD Tweaks for Better Input Delay
+echo Applying BCD Tweaks for lower Input Delay
 echo.
 bcdedit /set disabledynamictick yes
 bcdedit /deletevalue useplatformclock
@@ -398,6 +391,8 @@ sc start STR
 timeout 2 >nul
 
 cls
+
+echo Remove unwanted unnecessary temporary files
 @echo off
 color f
 rd %temp% /s /q

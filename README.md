@@ -1,7 +1,7 @@
 # QuickBoost
 Automated Windows Tweaking Utility
 
-# [Download] (https://github.com/SanGraphic/QuickBoost/releases)
+# [Download](https://github.com/SanGraphic/QuickBoost/releases)
 
 - Disable Telemetry & Data Collection
 - Disable Scheduled Tasks & Bloatwares

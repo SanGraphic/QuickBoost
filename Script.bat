@@ -1,5 +1,5 @@
 @echo off
-REM *** Disable Start-up Telemetry to Improve Startup  Memory Usage ***
+REM *** Disable Start-up Telemetry to Improve Startup and Memory Usage ***
 schtasks /end /tn "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator"
 schtasks /change /tn "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator" /disable
 schtasks /end /tn "\Microsoft\Windows\Customer Experience Improvement Program\BthSQM"
@@ -79,7 +79,7 @@ schtasks /Change /TN "Microsoft\Windows\WindowsUpdate\Automatic App Update" /Dis
 
 cls
 
-@rem *** Remove Data Collection ***
+@rem *** Remove Data Collection bloatwares ***
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata" /v PreventDeviceMetadataFromNetwork /t REG_DWORD /d 1 /f
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" /v "AllowTelemetry" /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\MRT" /v DontOfferThroughWUAU /t REG_DWORD /d 1 /f

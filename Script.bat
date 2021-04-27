@@ -1,6 +1,5 @@
 @echo off
 REM *** Disable Start-up Telemetry to Improve Startup  Memory Usage ***
-
 schtasks /end /tn "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator"
 schtasks /change /tn "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator" /disable
 schtasks /end /tn "\Microsoft\Windows\Customer Experience Improvement Program\BthSQM"
@@ -81,7 +80,6 @@ schtasks /Change /TN "Microsoft\Windows\WindowsUpdate\Automatic App Update" /Dis
 cls
 
 @rem *** Remove Data Collection ***
-
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata" /v PreventDeviceMetadataFromNetwork /t REG_DWORD /d 1 /f
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" /v "AllowTelemetry" /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\MRT" /v DontOfferThroughWUAU /t REG_DWORD /d 1 /f
@@ -94,7 +92,6 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\WMI\AutoLogger\SQMLogger" /v "Sta
 
 
 @rem *** Disable Settings App bloatware Options ***
-
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo" /v Enabled /t REG_DWORD /d 0 /f
 REM - SmartScreen Filter for Store Apps: Disable
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost" /v EnableWebContentEvaluation /t REG_DWORD /d 0 /f
@@ -119,8 +116,7 @@ cls
 Echo.
 Echo. [101;41mThe Telemetry Tasks has been disabled![0m
 echo.
-pause
-
+timeout 5 >nul
 cls
 
 @rem *** Disabling Services for less System Usage ***
@@ -362,6 +358,7 @@ echo.
 powershell Invoke-WebRequest "https://cdn.discordapp.com/attachments/460788721789173760/836161440103923732/SetTimerResolutionService.exe" -OutFile "C:\Windows\SetTimerResolutionService.exe"
 "C:\Windows\SetTimerResolutionService.exe" -install
 sc start STR
+timeout 2 >nul
 
 cls
 @echo off

@@ -1,5 +1,5 @@
 # QuickBoost
-## Simple Automated Windows 10 Tweaking Utility (Work in Progress)
+## Simple Automated Windows 10 Tweaking Utility (beta)
 
 compiled by @sangraphic, I did not find most of these tweaks,
 simply wrote this free program / script to help people in need.
@@ -8,7 +8,7 @@ simply wrote this free program / script to help people in need.
 
 # [Download](https://github.com/SanGraphic/QuickBoost/releases)
 
-## what does it do? (Simplified Summury)
+## what does it do? (Simplified Summary)
 
 - Disable Telemetry & Data Collection
 - Disable Scheduled Tasks & Bloatwares

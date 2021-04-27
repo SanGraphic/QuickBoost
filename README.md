@@ -1,7 +1,7 @@
 # QuickBoost
 ## Simple Automated Windows 10 Tweaking Utility (beta)
 
-compiled by [@sangraphic](twitter.com/sangraphic), I did not find most of these tweaks,
+compiled by [@sangraphic](https://twitter.com/sangraphic), I did not find most of these tweaks,
 simply wrote this free program / script to help people in need.
 
 ## ⚠ make a system restore point incase anything goes wrong ⚠

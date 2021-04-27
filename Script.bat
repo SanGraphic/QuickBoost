@@ -435,11 +435,12 @@ powercfg -import "C:\Windows\SanGraphicPOWERPLAN.pow" f42fe57c-e762-287e-984a-4e
 del /f "C:\Windows\SanGraphicPOWERPLAN.pow"
 powercfg -SETACTIVE "f42fe57c-e762-287e-984a-4e9613d9e9d3"
 
+cls
 c;s
 echo What Brand is Your GPU?
 echo.
-echo   1 If Nvidia
-echo   2 If AMD
+echo   1  If Nvidia
+echo   2  If AMD
 
 SET /P choice=  [101;44m1 / 2:[0m  
 IF /I "%choice%"=="1" goto :NV

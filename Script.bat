@@ -443,15 +443,24 @@ echo choose 2 if AMD
 
 SET /P choice=  [101;44m1 / 2:[0m  
 IF /I "%choice%"=="1" goto :NV
-IF /I "%choice%"=="2" goto :AMD
+IF /I "%choice%"=="2" goto :HDDQuestion
 
 :NV
 powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/836340936865742918/nvidiaProfileInspector.exe' -OutFile C:\Windows\nvidiaProfileInspector.exe
 powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/836340587782996038/nvprofile.nip' -OutFile C:\Windows\nvprofile.nip
 start "" /wait "C:\Windows\nvidiaProfileInspector.exe" "C:\Windows\nvprofile.nip"
 timeout 2 >nul
-goto :AMD
-:AMD
+goto :end
+
+:HDDQuestion
+goto :end
+
+:smol
+if not exist "%USERPROFILE%\Desktop\QuickBoostOptionalTweaks" mkdir %USERPROFILE%\Desktop\QuickBoostOptionalTweaks
+explorer.exe %USERPROFILE%\Desktop\QuickBoostOptionalTweaks
+
+
+:end
 Echo. [101;41mRestart Your PC!.[0m
 echo.
 SET msgboxTitle=QuickBoost by @SanGraphic

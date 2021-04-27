@@ -464,7 +464,7 @@ DEL /f /s /q "%userprofile%\Local Settings\Temporary Internet Files\*.*"
 DEL /f /s /q "%userprofile%\Local Settings\Temp\*.*"
 DEL /f /s /q "%userprofile%\recent\*.*"
 timeout 2 /nobreak>nul
-start explorer.exe
+start explorer
 cls
 @echo
 net stop wuauserv

@@ -77,7 +77,17 @@ schtasks /Change /TN "Microsoft\Windows\Time Synchronization\SynchronizeTime" /D
 schtasks /Change /TN "Microsoft\Windows\Windows Error Reporting\QueueReporting" /Disable
 schtasks /Change /TN "Microsoft\Windows\WindowsUpdate\Automatic App Update" /Disable
 
-cls
+echo Disable Startup Programs
+echo.
+REG DELETE HKSU\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce /f
+REG DELETE HKSU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /f
+REG DELETE HKSU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies /f
+REG DELETE HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\RunOnce /f
+REG DELETE HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run /f
+REG DELETE HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServicesOnce /f
+REG DELETE HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices /f
+REG DELETE HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnceEx /f
+REG DELETE HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /f
 
 @rem *** Remove Data Collection bloatwares ***
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata" /v PreventDeviceMetadataFromNetwork /t REG_DWORD /d 1 /f

@@ -436,7 +436,6 @@ del /f "C:\Windows\SanGraphicPOWERPLAN.pow"
 powercfg -SETACTIVE "f42fe57c-e762-287e-984a-4e9613d9e9d3"
 
 cls
-c;s
 echo What Brand is Your GPU?
 echo.
 echo   1  If Nvidia

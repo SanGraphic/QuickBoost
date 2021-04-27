@@ -2,7 +2,7 @@
 ## Automated Windows Tweaking Utility (Work in Progress)
 compiled by @sangraphic, I did not invent / find these tweaks, I simply made this free program to help people in need.
 
-⚠ make a system restore point incase anything goes wrong ⚠
+# ⚠ make a system restore point incase anything goes wrong ⚠
 
 # [Download](https://github.com/SanGraphic/QuickBoost/releases)
 

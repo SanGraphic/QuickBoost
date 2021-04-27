@@ -514,6 +514,8 @@ explorer.exe %USERPROFILE%\Desktop\QuickBoostOptionalTweaks
 
 
 :end
+start explorer
+cls
 Echo. [101;41mRestart Your PC!.[0m
 echo.
 SET msgboxTitle=QuickBoost by @SanGraphic

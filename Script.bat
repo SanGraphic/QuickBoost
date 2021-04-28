@@ -461,22 +461,9 @@ sc start STR
 timeout 2 >nul
 
 cls
-
-echo Remove unwanted unnecessary temporary files
 @echo off
-color f
-rd %temp% /s /q
-md %temp%
-cls
-del /s /f /q C:\WINDOWS\Prefetch
-del /s /f /q %temp%\*.*
-rd /s /q %temp%
-md %temp%
-cls 
-                                                  
-color f                                                   
-echo.
-echo Finishing cleaning Temporary Files%mSpinner%
+color b
+echo Removing Unwanted unnecessary and temporary files%mSpinner%
 echo.
 echo.
 echo   ********     **     ****     **     ********  *******       **     *******  **      ** **   ****** 
@@ -513,6 +500,9 @@ del *.log /a /s /q /f
 powershell taskkill /F /IM explorer.exe
 timeout 2 /nobreak>nul
 DEL /F /S /Q /A %LocalAppData%\Microsoft\Windows\Explorer\thumbcache_*.db
+DEL /f /s /q %temp%\
+DEL /f /s /q %temp%\*.tmp
+DEL /f /s /q %temp%\*
 DEL /f /s /q %systemdrive%\*.tmp
 DEL /f /s /q %systemdrive%\*._mp
 DEL /f /s /q %systemdrive%\*.log
@@ -609,22 +599,9 @@ exit
 
 :TempFilesClear
 cls
-
-echo Remove unwanted unnecessary temporary files
 @echo off
-color f
-rd %temp% /s /q
-md %temp%
-cls
-del /s /f /q C:\WINDOWS\Prefetch
-del /s /f /q %temp%\*.*
-rd /s /q %temp%
-md %temp%
-cls 
-                                                  
-color f                                                   
-echo.
-echo Finishing cleaning Temporary Files%mSpinner%
+color b
+echo Removing Unwanted unnecessary and temporary files%mSpinner%
 echo.
 echo.
 echo   ********     **     ****     **     ********  *******       **     *******  **      ** **   ****** 
@@ -661,6 +638,9 @@ del *.log /a /s /q /f
 powershell taskkill /F /IM explorer.exe
 timeout 2 /nobreak>nul
 DEL /F /S /Q /A %LocalAppData%\Microsoft\Windows\Explorer\thumbcache_*.db
+DEL /f /s /q %temp%\
+DEL /f /s /q %temp%\*.tmp
+DEL /f /s /q %temp%\*
 DEL /f /s /q %systemdrive%\*.tmp
 DEL /f /s /q %systemdrive%\*._mp
 DEL /f /s /q %systemdrive%\*.log
@@ -682,6 +662,7 @@ Invoke-Command COMPUTERNAME -command{Stop-Process -ProcessName Explorer}
 Invoke-Command COMPUTERNAME -command{Start-Process -ProcessName Explorer}
 powershell Start explorer.exe
 cls
+
 @echo
 net stop wuauserv
 @echo
@@ -691,12 +672,13 @@ net stop bits
 @echo
 net stop dosvc
 @echo
+
 echo Deleting Windows Update Files:
 rd /s /q C:\Windows\SoftwareDistribution
 md C:\Windows\SoftwareDistribution
 cls
 echo.
-cls
+
 echo Running Windows Cleaner (cleanmgr.exe)
 start "" /wait "C:\Windows\System32\cleanmgr.exe" /sagerun:50 
 echo.

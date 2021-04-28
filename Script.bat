@@ -1,3 +1,38 @@
+@ECHO off
+goto home
+:home
+color b
+cls
+echo.
+echo.
+echo.
+echo    *******            **         **     ******                               **  
+echo   **/////**          //         /**    /*////**                             /**  
+echo  **     //**  **   ** **  ***** /**  **/*   /**   ******   ******   ****** ******
+echo /**      /** /**  /**/** **///**/** ** /******   **////** **////** **//// ///**/ 
+echo /**    **/** /**  /**/**/**  // /****  /*//// **/**   /**/**   /**//*****   /**  
+echo //**  // **  /**  /**/**/**   **/**/** /*    /**/**   /**/**   /** /////**  /**  
+echo  //******* **//******/**//***** /**//**/******* //****** //******  ******   //** 
+echo   /////// //  ////// //  /////  //  // ///////   //////   //////  //////     //  
+
+echo.                                                                                                                                                                
+echo   Last Updated 4/29/2021 ( + Minimal GUI and RAM Tweaks )
+echo.
+echo.
+ECHO 1. Apply All Tweaks
+ECHO 2. Clear Temporary Files
+echo.
+echo.
+set choice=
+set /p choice=Choose an Option:
+if not '%choice%'=='' set choice=%choice:~0,1%
+if '%choice%'=='1' goto :ApplyAllTweaks
+if '%choice%'=='2' goto :TempFilesClear
+ECHO "%choice%" is not valid, try again
+
+:ApplyAllTweaks
+cls
+
 @echo off
 REM *** Disable Start-up Telemetry and Programs to Improve Startup and Memory Usage ***
 schtasks /end /tn "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator"
@@ -360,7 +395,42 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Credssp" /v "DebugLogLevel" /
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v "DisableThirdPartySuggestions" /t REG_DWORD /d "1" /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v "DisableWindowsConsumerFeatures" /t REG_DWORD /d "1" /f
 
+cls
+echo Enter the amount of RAM that you have. (Example: 4GB, 6GB, 8GB, 16GB, 32GB, 64GB)
+echo.
+echo. 
+set choice=
+set /p choice=Amount of RAM:
+if not '%choice%'=='' set choice=%choice:~0,1%
+if '%choice%'=='4GB' goto :4GBRam
+if '%choice%'=='6GB' goto :6GBRam
+if '%choice%'=='8GB' goto :8GBRam
+if '%choice%'=='16GB' goto :16GBRam
+if '%choice%'=='32GB' goto :32GBRam
+if '%choice%'=='64GB' goto :64GBRam
+ECHO "%choice%" is not valid, try again
 
+:4GBRam
+Reg.exe add "HKLM\SYSTEM\ControlSet001\Control" /v "SvcHostSplitThresholdInKB" /t REG_DWORD /d "68764420" /f
+goto :AfterRamQuestion
+:6GBRam
+Reg.exe add "HKLM\SYSTEM\ControlSet001\Control" /v "SvcHostSplitThresholdInKB" /t REG_DWORD /d "103355478" /f
+goto :AfterRamQuestion
+:8GBRam
+Reg.exe add "HKLM\SYSTEM\ControlSet001\Control" /v "SvcHostSplitThresholdInKB" /t REG_DWORD /d "137922056" /f
+goto :AfterRamQuestion
+:16GBRam
+Reg.exe add "HKLM\SYSTEM\ControlSet001\Control" /v "SvcHostSplitThresholdInKB" /t REG_DWORD /d "376926742" /f
+goto :AfterRamQuestion
+:32GBRam
+Reg.exe add "HKLM\SYSTEM\ControlSet001\Control" /v "SvcHostSplitThresholdInKB" /t REG_DWORD /d "861226034" /f
+goto :AfterRamQuestion
+:64GB
+Reg.exe add "HKLM\SYSTEM\ControlSet001\Control" /v "SvcHostSplitThresholdInKB" /t REG_DWORD /d "1729136740" /f
+goto :AfterRamQuestion
+
+
+:AfterRamQuestion
 echo Adding Take Ownership to Context menu
 Reg.exe add "HKCR\*\shell\runas" /ve /t REG_SZ /d "Take Ownership" /f
 Reg.exe add "HKCR\*\shell\runas" /v "NoWorkingDirectory" /t REG_SZ /d "" /f
@@ -403,7 +473,8 @@ del /s /f /q %temp%\*.*
 rd /s /q %temp%
 md %temp%
 cls 
-
+                                                  
+color f                                                   
 echo.
 echo Finishing cleaning Temporary Files%mSpinner%
 echo.
@@ -496,9 +567,13 @@ echo.
 echo type 1 if Nvidia
 echo type 2 if AMD
 
-SET /P choice=  [101;44m1 / 2:[0m  
-IF /I "%choice%"=="1" goto :NV
-IF /I "%choice%"=="2" goto :HDDQuestion
+set choice=
+set /p choice=Choose an Option:
+if not '%choice%'=='' set choice=%choice:~0,1%
+if '%choice%'=='1' goto :NV
+if '%choice%'=='2' goto :HDDQuestion
+ECHO "%choice%" is not valid, try again
+
 
 :NV
 powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/836340936865742918/nvidiaProfileInspector.exe' -OutFile C:\Windows\nvidiaProfileInspector.exe
@@ -528,3 +603,102 @@ WSCRIPT "%tmpmsgbox%"
 
 del /f "C:\Windows\QuickBoostScript.bat"
 exit
+
+
+
+
+:TempFilesClear
+cls
+
+echo Remove unwanted unnecessary temporary files
+@echo off
+color f
+rd %temp% /s /q
+md %temp%
+cls
+del /s /f /q C:\WINDOWS\Prefetch
+del /s /f /q %temp%\*.*
+rd /s /q %temp%
+md %temp%
+cls 
+                                                  
+color f                                                   
+echo.
+echo Finishing cleaning Temporary Files%mSpinner%
+echo.
+echo.
+echo   ********     **     ****     **     ********  *******       **     *******  **      ** **   ****** 
+echo  **//////     ****   /**/**   /**    **//////**/**////**     ****   /**////**/**     /**/**  **////**
+echo /**          **//**  /**//**  /**   **      // /**   /**    **//**  /**   /**/**     /**/** **    // 
+echo /*********  **  //** /** //** /**  /**         /*******    **  //** /******* /**********/**/**       
+echo ////////** **********/**  //**/**  /**    *****/**///**   **********/**////  /**//////**/**/**       
+echo        /**/**//////**/**   //****  //**  ////**/**  //** /**//////**/**      /**     /**/**//**    **
+echo  ******** /**     /**/**    //***   //******** /**   //**/**     /**/**      /**     /**/** //****** 
+echo ////////  //      // //      ///     ////////  //     // //      // //       //      // //   //////  
+echo.
+ping 127.0.0.1 -n 2 >nul
+ping 127.0.0.1 -n 3 >nul
+@echo off
+del /q /s %systemdrive%\$Recycle.bin\*
+for /d %%x in (%systemdrive%\$Recycle.bin\*) do @rd /s /q "%%x"
+cls
+powershell.exe Remove-Item -Path $env:TEMP -Recurse -Force -ErrorAction SilentlyContinue
+cls
+echo Clearing Epic Games and Fortnite Temporary Files:
+erase /F /S /Q "%SystemRoot%\TEMP*.*"
+for /D %%G in ("%SystemRoot%\TEMP*") do RD /S /Q "%%G"
+for /D %%G in ("%SystemDrive%\Users*") do erase /F /S /Q "%%G\AppData\Local\Temp*.*"
+for /D %%G in ("%SystemDrive%\Users*") do RD /S /Q "%%G\AppData\Local\Temp\"
+powershell -command Remove-Item 'C:\Users\*\AppData\Local\Fortnitegame\saved\Logs' -Recurse -Force
+powershell -command Remove-Item 'C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Logs' -Recurse -Force
+powershell -command Remove-Item 'C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Crashes' -Recurse -Force
+cls
+echo Clearing Log Files From The System
+echo.
+@echo off
+cd/
+del *.log /a /s /q /f
+powershell taskkill /F /IM explorer.exe
+timeout 2 /nobreak>nul
+DEL /F /S /Q /A %LocalAppData%\Microsoft\Windows\Explorer\thumbcache_*.db
+DEL /f /s /q %systemdrive%\*.tmp
+DEL /f /s /q %systemdrive%\*._mp
+DEL /f /s /q %systemdrive%\*.log
+DEL /f /s /q %systemdrive%\*.gid
+DEL /f /s /q %systemdrive%\*.chk
+DEL /f /s /q %systemdrive%\*.old
+DEL /f /s /q %systemdrive%\recycled\*.*
+DEL /f /s /q %systemdrive%\$Recycle.Bin\*.*
+DEL /f /s /q %windir%\*.bak
+DEL /f /s /q %windir%\prefetch\*.*
+rd /s /q %windir%\temp & md %windir%\temp
+DEL /f /q %userprofile%\cookies\*.*
+DEL /f /q %userprofile%\recent\*.*
+DEL /f /s /q "%userprofile%\Local Settings\Temporary Internet Files\*.*"
+DEL /f /s /q "%userprofile%\Local Settings\Temp\*.*"
+DEL /f /s /q "%userprofile%\recent\*.*"
+timeout 3 /nobreak>nul
+Invoke-Command COMPUTERNAME -command{Stop-Process -ProcessName Explorer}
+Invoke-Command COMPUTERNAME -command{Start-Process -ProcessName Explorer}
+powershell Start explorer.exe
+cls
+@echo
+net stop wuauserv
+@echo
+net stop UsoSvc
+@echo
+net stop bits
+@echo
+net stop dosvc
+@echo
+echo Deleting Windows Update Files:
+rd /s /q C:\Windows\SoftwareDistribution
+md C:\Windows\SoftwareDistribution
+cls
+echo.
+cls
+echo Running Windows Cleaner (cleanmgr.exe)
+start "" /wait "C:\Windows\System32\cleanmgr.exe" /sagerun:50 
+echo.
+
+goto :home

@@ -4,7 +4,7 @@
 compiled by [@sangraphic](https://twitter.com/sangraphic), I did not find most of these tweaks,
 simply wrote this free program / script to help people in need.
 
-Join the [discord](https://discord.gg/aDCPgx9n86)
+##Join the [discord](https://discord.gg/aDCPgx9n86)
 
 ## ⚠ make a system restore point incase anything goes wrong ⚠
 

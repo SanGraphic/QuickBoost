@@ -1,4 +1,16 @@
-@ECHO off
+@echo off
+title Compiled by SanGraphic # 5833
+color 4
+cls
+echo.
+echo.
+echo.
+echo   "Before using any of the options, please make a system restore point, I do not take any responsability
+echo   if you break your system, lose data, or have a performance decrease, thank you for understanding"- san
+echo.
+echo.
+echo.
+pause
 goto home
 :home
 color b

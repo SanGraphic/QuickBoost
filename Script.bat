@@ -454,7 +454,48 @@ Reg.exe add "HKCR\Directory\shell\runas\command" /ve /t REG_SZ /d "cmd.exe /c ta
 Reg.exe add "HKCR\Directory\shell\runas\command" /v "IsolatedCommand" /t REG_SZ /d "cmd.exe /c takeown /f \"%%1\" /r /d y && icacls \"%%1\" /grant administrators:F /t" /f
 
 cls
+cls
+echo What Brand is Your GPU?
+echo.
+echo type 1 if Nvidia
+echo type 2 if AMD
 
+set choice=
+set /p choice=Choose an Option:
+if not '%choice%'=='' set choice=%choice:~0,1%
+if '%choice%'=='1' goto :NV
+if '%choice%'=='2' goto :HDDQuestion
+ECHO "%choice%" is not valid, try again
+
+:NV
+cls
+echo.
+echo 1. Better Max FPS
+echo 2. Better AVG FPS
+echo.
+set choice=
+set /p choice=Choose an Option:
+if not '%choice%'=='' set choice=%choice:~0,1%
+if '%choice%'=='1' goto :NV1
+if '%choice%'=='2' goto :NV2
+ECHO "%choice%" is not valid, try again
+
+
+
+:NV1
+powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/836340936865742918/nvidiaProfileInspector.exe' -OutFile C:\Windows\nvidiaProfileInspector.exe
+powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/837315087907422228/nvprofile.nip' -OutFile C:\Windows\nvprofile.nip
+start "" /wait "C:\Windows\nvidiaProfileInspector.exe" "C:\Windows\nvprofile.nip"
+timeout 2 >nul
+goto :end
+
+:NV2
+powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/836340936865742918/nvidiaProfileInspector.exe' -OutFile C:\Windows\nvidiaProfileInspector.exe
+powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/836340587782996038/nvprofile.nip' -OutFile C:\Windows\nvprofile.nip
+start "" /wait "C:\Windows\nvidiaProfileInspector.exe" "C:\Windows\nvprofile.nip"
+timeout 2 >nul
+
+cls
 @echo off
 echo Applying BCD Tweaks for lower Input Delay
 echo.
@@ -563,46 +604,7 @@ powercfg -import "C:\Windows\SanGraphicPOWERPLAN.pow" f42fe57c-e762-287e-984a-4e
 del /f "C:\Windows\SanGraphicPOWERPLAN.pow"
 powercfg -SETACTIVE "f42fe57c-e762-287e-984a-4e9613d9e9d3"
 
-cls
-echo What Brand is Your GPU?
-echo.
-echo type 1 if Nvidia
-echo type 2 if AMD
 
-set choice=
-set /p choice=Choose an Option:
-if not '%choice%'=='' set choice=%choice:~0,1%
-if '%choice%'=='1' goto :NV
-if '%choice%'=='2' goto :HDDQuestion
-ECHO "%choice%" is not valid, try again
-
-:NV
-cls
-echo.
-echo 1. Better Max FPS
-echo 2. Better AVG FPS
-echo.
-set choice=
-set /p choice=Choose an Option:
-if not '%choice%'=='' set choice=%choice:~0,1%
-if '%choice%'=='1' goto :NV1
-if '%choice%'=='2' goto :NV2
-ECHO "%choice%" is not valid, try again
-
-
-
-:NV1
-powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/836340936865742918/nvidiaProfileInspector.exe' -OutFile C:\Windows\nvidiaProfileInspector.exe
-powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/837315087907422228/nvprofile.nip' -OutFile C:\Windows\nvprofile.nip
-start "" /wait "C:\Windows\nvidiaProfileInspector.exe" "C:\Windows\nvprofile.nip"
-timeout 2 >nul
-goto :end
-
-:NV2
-powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/836340936865742918/nvidiaProfileInspector.exe' -OutFile C:\Windows\nvidiaProfileInspector.exe
-powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/836340587782996038/nvprofile.nip' -OutFile C:\Windows\nvprofile.nip
-start "" /wait "C:\Windows\nvidiaProfileInspector.exe" "C:\Windows\nvprofile.nip"
-timeout 2 >nul
 goto :end
 
 

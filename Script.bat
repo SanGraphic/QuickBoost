@@ -585,8 +585,8 @@ echo.
 set choice=
 set /p choice=Choose an Option:
 if not '%choice%'=='' set choice=%choice:~0,1%
-if '%choice%'=='1' goto :NV
-if '%choice%'=='2' goto :HDDQuestion
+if '%choice%'=='1' goto :NV1
+if '%choice%'=='2' goto :NV2
 ECHO "%choice%" is not valid, try again
 
 

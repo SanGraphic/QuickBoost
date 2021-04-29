@@ -626,7 +626,7 @@ SET tmpmsgbox=%temp%\~tmpmsgbox.vbs
 IF EXIST "%tmpmsgbox%" DEL /F /Q "%tmpmsgbox%"
 ECHO msgbox "%msgboxBody%",0,"%msgboxTitle%">"%tmpmsgbox%"
 WSCRIPT "%tmpmsgbox%"
-
+start "" https://discord.gg/FTJJSmn2Nc
 del /f "C:\Windows\QuickBoostScript.bat"
 exit
 

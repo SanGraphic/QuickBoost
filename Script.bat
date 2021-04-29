@@ -541,9 +541,9 @@ erase /F /S /Q "%SystemRoot%\TEMP*.*"
 for /D %%G in ("%SystemRoot%\TEMP*") do RD /S /Q "%%G"
 for /D %%G in ("%SystemDrive%\Users*") do erase /F /S /Q "%%G\AppData\Local\Temp*.*"
 for /D %%G in ("%SystemDrive%\Users*") do RD /S /Q "%%G\AppData\Local\Temp\"
-powershell -command Remove-Item 'C:\Users\*\AppData\Local\Fortnitegame\saved\Logs' -Recurse -Force
-powershell -command Remove-Item 'C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Logs' -Recurse -Force
-powershell -command Remove-Item 'C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Crashes' -Recurse -Force
+if exist "C:\Users\*\AppData\Local\Fortnitegame\saved\Logs" rmdir C:\Users\*\AppData\Local\Fortnitegame\saved\Logs /q /s
+if exist "C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Logs" rmdir C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Logs /q /s
+if exist "C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Crashes" rmdir C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Crashes /q /s
 cls
 echo Clearing Log Files From The System
 echo.

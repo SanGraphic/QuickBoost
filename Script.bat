@@ -470,9 +470,9 @@ ECHO "%choice%" is not valid, try again
 :NV
 cls
 echo.
-echo 1. Better Max FPS
-echo 2. Better AVG FPS
-echo.
+echo 1. Better Average FPS (Stability)
+echo 2. Better Max FPS (for show-off)
+echo.   
 set choice=
 set /p choice=Choose an Option:
 if not '%choice%'=='' set choice=%choice:~0,1%

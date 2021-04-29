@@ -576,13 +576,35 @@ if '%choice%'=='1' goto :NV
 if '%choice%'=='2' goto :HDDQuestion
 ECHO "%choice%" is not valid, try again
 
-
 :NV
+cls
+echo.
+echo 1. Better Max FPS
+echo 2. Better AVG FPS
+echo.
+set choice=
+set /p choice=Choose an Option:
+if not '%choice%'=='' set choice=%choice:~0,1%
+if '%choice%'=='1' goto :NV
+if '%choice%'=='2' goto :HDDQuestion
+ECHO "%choice%" is not valid, try again
+
+
+
+:NV1
 powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/836340936865742918/nvidiaProfileInspector.exe' -OutFile C:\Windows\nvidiaProfileInspector.exe
 powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/837315087907422228/nvprofile.nip' -OutFile C:\Windows\nvprofile.nip
 start "" /wait "C:\Windows\nvidiaProfileInspector.exe" "C:\Windows\nvprofile.nip"
 timeout 2 >nul
 goto :end
+
+:NV2
+powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/836340936865742918/nvidiaProfileInspector.exe' -OutFile C:\Windows\nvidiaProfileInspector.exe
+powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/836340587782996038/nvprofile.nip' -OutFile C:\Windows\nvprofile.nip
+start "" /wait "C:\Windows\nvidiaProfileInspector.exe" "C:\Windows\nvprofile.nip"
+timeout 2 >nul
+goto :end
+
 
 :HDDQuestion
 goto :end

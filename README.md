@@ -1,7 +1,8 @@
 # QuickBoost: Automated Windows 10 Tweaking Utility
 
-Code Written & Compiled by [@sangraphic](https://twitter.com/sangraphic), I did not find most of these tweaks,
-simply wrote this free program / script to help people in need.
+Code Written & Compiled by [@sangraphic](https://twitter.com/sangraphic),
+
+Wrote this free program / script to help people in need.
 
 ## Join the [discord](https://discord.gg/aDCPgx9n86)
 

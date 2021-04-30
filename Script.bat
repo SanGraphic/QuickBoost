@@ -631,7 +631,7 @@ cls
 Echo. [101;41mRestart Your PC!.[0m
 echo.
 SET msgboxTitle=QuickBoost by @SanGraphic
-SET msgboxBody=Gaming Tweaks Have been Applied, Please Restart your PC & Leave a feedback on the discord <3
+SET msgboxBody=QuickBoost Tweaks Have been Applied, Please Restart your PC & Leave a feedback on the discord <3
 SET tmpmsgbox=%temp%\~tmpmsgbox.vbs
 IF EXIST "%tmpmsgbox%" DEL /F /Q "%tmpmsgbox%"
 ECHO msgbox "%msgboxBody%",0,"%msgboxTitle%">"%tmpmsgbox%"

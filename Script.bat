@@ -551,12 +551,33 @@ erase /F /S /Q "%SystemRoot%\TEMP*.*"
 for /D %%G in ("%SystemRoot%\TEMP*") do RD /S /Q "%%G"
 for /D %%G in ("%SystemDrive%\Users*") do erase /F /S /Q "%%G\AppData\Local\Temp*.*"
 for /D %%G in ("%SystemDrive%\Users*") do RD /S /Q "%%G\AppData\Local\Temp\" 
-if exist "C:\Users\*\AppData\Local\BraveSoftware\Brave-Browser\User Data\Default\Code Cache\Js" rmdir C:\Users\*\AppData\Local\BraveSoftware\Brave-Browser\User Data\Default\Code Cache\Js /q /s
-if exist "C:\Users\*\AppData\Local\Google\Chrome\User Data\Default\Code Cache\Js" rmdir C:\Users\*\AppData\Local\Google\Chrome\User Data\Default\Code Cache\Js /q /s
-if exist "C:\Users\*\AppData\Local\Fortnitegame\saved\Logs" rmdir C:\Users\*\AppData\Local\Fortnitegame\saved\Logs /q /s
-if exist "C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Logs" rmdir C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Logs /q /s
-if exist "C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Crashes" rmdir C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Crashes /q /s
+
+set BraveDir=C:\Users\%USERNAME%\AppData\Local\BraveSoftware\Brave-Browser\User Data\Default\Code Cache\Js
+del /s /Q /f "%BraveDir%"
+rd /s /q "%BraveDir%"
+
+set AppleDir=C:\ProgramData\Apple\Installer Cache
+del /s /Q /f "%AppleDir%"
+rd /s /q "%AppleDir%"
+
+set ChromeDir=C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data\Default\Code Cache\Js
+del /s /Q /f "%ChromeDir%"
+rd /s /q "%ChromeDir%"
+
+set FortDir=C:\Users\%USERNAME%\AppData\Local\Fortnitegame\saved\Logs
+del /s /Q /f "%FortDir%"
+rd /s /q "%FortDir%"
+
+set EpicDir=C:\Users\%USERNAME%\AppData\Local\EpicGamesLauncher\Saved\Logs
+del /s /Q /f "%EpicDir%"
+rd /s /q "%EpicDir%"
+
+set EbicDir=C:\Users\%USERNAME%\AppData\Local\EpicGamesLauncher\Saved\Crashes
+del /s /Q /f "%EbicDir%"
+rd /s /q "%EbicDir%"
+
 cls
+
 echo Clearing Log Files From The System
 echo.
 @echo off
@@ -674,12 +695,33 @@ erase /F /S /Q "%SystemRoot%\TEMP*.*"
 for /D %%G in ("%SystemRoot%\TEMP*") do RD /S /Q "%%G"
 for /D %%G in ("%SystemDrive%\Users*") do erase /F /S /Q "%%G\AppData\Local\Temp*.*"
 for /D %%G in ("%SystemDrive%\Users*") do RD /S /Q "%%G\AppData\Local\Temp\" 
-if exist "C:\Users\*\AppData\Local\BraveSoftware\Brave-Browser\User Data\Default\Code Cache\Js" rmdir C:\Users\*\AppData\Local\BraveSoftware\Brave-Browser\User Data\Default\Code Cache\Js /q /s
-if exist "C:\Users\*\AppData\Local\Google\Chrome\User Data\Default\Code Cache\Js" rmdir C:\Users\*\AppData\Local\Google\Chrome\User Data\Default\Code Cache\Js /q /s
-if exist "C:\Users\*\AppData\Local\Fortnitegame\saved\Logs" rmdir C:\Users\*\AppData\Local\Fortnitegame\saved\Logs /q /s
-if exist "C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Logs" rmdir C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Logs /q /s
-if exist "C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Crashes" rmdir C:\Users\*\AppData\Local\EpicGamesLauncher\Saved\Crashes /q /s
+
+set BraveDir=C:\Users\%USERNAME%\AppData\Local\BraveSoftware\Brave-Browser\User Data\Default\Code Cache\Js
+del /s /Q /f "%BraveDir%"
+rd /s /q "%BraveDir%"
+
+set AppleDir=C:\ProgramData\Apple\Installer Cache
+del /s /Q /f "%AppleDir%"
+rd /s /q "%AppleDir%"
+
+set ChromeDir=C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data\Default\Code Cache\Js
+del /s /Q /f "%ChromeDir%"
+rd /s /q "%ChromeDir%"
+
+set FortDir=C:\Users\%USERNAME%\AppData\Local\Fortnitegame\saved\Logs
+del /s /Q /f "%FortDir%"
+rd /s /q "%FortDir%"
+
+set EpicDir=C:\Users\%USERNAME%\AppData\Local\EpicGamesLauncher\Saved\Logs
+del /s /Q /f "%EpicDir%"
+rd /s /q "%EpicDir%"
+
+set EbicDir=C:\Users\%USERNAME%\AppData\Local\EpicGamesLauncher\Saved\Crashes
+del /s /Q /f "%EbicDir%"
+rd /s /q "%EbicDir%"
+
 cls
+
 echo Clearing Log Files From The System
 echo.
 @echo off

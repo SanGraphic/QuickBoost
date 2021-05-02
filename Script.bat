@@ -194,8 +194,7 @@ if '%choice%'=='2' goto :KeepPreinstalled
 ECHO "%choice%" is not valid, try again
 
 :RemovePreinstalled
-Powershell iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/SanGraphic/QuickBoost/main/Remove%20Preinstalled%20Apps%20by%20W4RH4WK.ps1
-'))
+Powershell iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/J3BUp'))
 goto :KeepPreinstalled
 
 :KeepPreinstalled

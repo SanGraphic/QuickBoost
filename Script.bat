@@ -181,6 +181,25 @@ echo.
 timeout 2 >nul
 cls
 
+echo.
+ECHO 1. Remove / Debloat Preinstalled Apps (Safe)
+ECHO 2. Keep Preinstalled Apps
+echo.
+echo.
+set choice=
+set /p choice=Choose an Option:
+if not '%choice%'=='' set choice=%choice:~0,1%
+if '%choice%'=='1' goto :RemovePreinstalled
+if '%choice%'=='2' goto :KeepPreinstalled
+ECHO "%choice%" is not valid, try again
+
+:RemovePreinstalled
+Powershell iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/SanGraphic/QuickBoost/main/Remove%20Preinstalled%20Apps%20by%20W4RH4WK.ps1
+'))
+goto :KeepPreinstalled
+
+:KeepPreinstalled
+cls
 @rem *** Disabling unnecessary System Services for less System Usage ***
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\TapiSrv" /v "Start" /t REG_DWORD /d "4" /f
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\FontCache3.0.0.0" /v "Start" /t REG_DWORD /d "4" /f

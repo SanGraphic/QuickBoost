@@ -199,6 +199,25 @@ goto :KeepPreinstalled
 
 :KeepPreinstalled
 cls
+echo What is your System Type:
+echo.
+ECHO 1. Desktop
+ECHO 2. Laptop
+echo.
+echo.
+set choice=
+set /p choice=Choose an Option:
+if not '%choice%'=='' set choice=%choice:~0,1%
+if '%choice%'=='1' goto :DesktopPC
+if '%choice%'=='2' goto :LaptopPC
+ECHO "%choice%" is not valid, try again
+
+:DesktopPC
+@REM Disabling PowerThrottling 
+Reg.exe add "HKLM\SYSTEM\ControlSet001\Control\Power\PowerThrottling" /v "PowerThrottlingOff" /t REG_DWORD /d "1" /f
+goto :LaptopPC
+
+:LaptopPC
 @rem *** Disabling unnecessary System Services for less System Usage ***
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\TapiSrv" /v "Start" /t REG_DWORD /d "4" /f
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\FontCache3.0.0.0" /v "Start" /t REG_DWORD /d "4" /f

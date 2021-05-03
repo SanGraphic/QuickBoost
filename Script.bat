@@ -186,10 +186,10 @@ echo 1. Remove Preinstalled Apps
 echo 2. Keep Preinstalled Apps
 echo.
 
-choice /C:123456789 /N /M ">                         Enter Your Choice in the Keyboard [1,2] : "	
+choice /C:123456789 /N /M "> Enter Your Choice in the Keyboard [1,2] : "	
 if errorlevel  2 goto:KeepApps
 if errorlevel  1 goto:RemovePreinstalled
-
+::========================================================================================================================================
 
 :RemovePreinstalled
 @rem Debloat Windows & Remove Preinstalled Programs
@@ -223,26 +223,26 @@ goto:KeepApps
 
 :KeepApps
 cls
+::========================================================================================================================================
 echo What is your System Type:
 echo.
 ECHO 1. Desktop
 ECHO 2. Laptop
-echo.
-echo.
-set choice=
-set /p choice=Choose an Option:
-if not '%choice%'=='' set choice=%choice:~0,1%
-if '%choice%'=='1' goto :DesktopPC
-if '%choice%'=='2' goto :LaptopPC
-ECHO "%choice%" is not valid, try again
+ECHO.
+choice /C:123456789 /N /M "> Enter Your Choice in the Keyboard [1,2] : "	
+if errorlevel  2 goto:DesktopPC
+if errorlevel  1 goto:LaptopPC
+::========================================================================================================================================
 
 :DesktopPC
 @REM Disabling PowerThrottling 
 Reg.exe add "HKLM\SYSTEM\ControlSet001\Control\Power\PowerThrottling" /v "PowerThrottlingOff" /t REG_DWORD /d "1" /f
-goto :LaptopPC
+goto:LaptopPC
 
 :LaptopPC
-@rem *** Disabling unnecessary System Services for less System Usage ***
+
+Echo Disabling unnecessary System Services for less System Usage
+
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\TapiSrv" /v "Start" /t REG_DWORD /d "4" /f
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\FontCache3.0.0.0" /v "Start" /t REG_DWORD /d "4" /f
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\WpcMonSvc" /v "Start" /t REG_DWORD /d "4" /f
@@ -512,6 +512,7 @@ goto :AfterRamQuestion
 
 
 :AfterRamQuestion
+
 echo Adding Take Ownership to Context menu
 Reg.exe add "HKCR\*\shell\runas" /ve /t REG_SZ /d "Take Ownership" /f
 Reg.exe add "HKCR\*\shell\runas" /v "NoWorkingDirectory" /t REG_SZ /d "" /f
@@ -855,6 +856,7 @@ echo                           ^|                                               
 echo                           ^|      Apply Specific Tweak:                                    ^|
 echo                           ^|      __________________________________________________       ^| 
 echo                           ^|                                                               ^|
+echo                           ^|                                                               ^|
 echo                           ^|      [1] Enable FSE and Disable GameBar                       ^|
 echo                           ^|                                                               ^|
 echo                           ^|      [2] Install Timer Resolution Service                     ^|
@@ -863,19 +865,21 @@ echo                           ^|      [3] Disable Power Throttling             
 echo                           ^|                                                               ^|
 echo                           ^|      [4] Apply System Profile (GPU and Network Tweaks)        ^|
 echo                           ^|                                                               ^|
+echo                           ^|      [5] Apply BCD Tweaks for Input delay                     ^|
 echo                           ^|                                                               ^|
+echo                           ^|      [6] Apply SvcHostSplitThreshold Memory Tweaks            ^|
 echo                           ^|                                                               ^|
+echo                           ^|      [7] Apply HardwareDataQueueSize for Input delay          ^|
 echo                           ^|                                                               ^|
 echo                           ^|                                                               ^|
 echo                           ^|      [9] Back                                                 ^|
-echo                           ^|                                                               ^|
-echo                           ^|                                                               ^|
-echo                           ^|                                                               ^|
-echo                           ^|                                                               ^|
 echo                           ^|_______________________________________________________________^|
 echo.
 choice /C:123456789 /N /M ">                         Enter Your Choice on the Keyboard [1,2,3,4] : "	
 if errorlevel  9 goto:home
+if errorlevel  7 goto:HardwareDataQueueSize
+if errorlevel  6 goto:SvcHostSplitThreshold
+if errorlevel  5 goto:ApplyBCDTweaks
 if errorlevel  4 goto:ApplySystemprofile
 if errorlevel  3 goto:DisablePowerThrottling
 if errorlevel  2 goto:InstallTimerRes
@@ -919,4 +923,33 @@ Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\System
 Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games" /v "Priority" /t REG_DWORD /d "6" /f
 Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games" /v "Scheduling Category" /t REG_SZ /d "High" /f
 Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games" /v "SFIO Priority" /t REG_SZ /d "High" /f
+goto:SpecificTweaks
+::========================================================================================================================================
+:ApplyBCDTweaks
+echo Applying BCD Tweaks
+echo.
+bcdedit /set disabledynamictick yes
+bcdedit /deletevalue useplatformclock
+bcdedit /set useplatformtick yes
+goto:SpecificTweaks
+::========================================================================================================================================
+:SvcHostSplitThreshold
+cls
+echo Enter the amount of RAM that you have. (Example: 4GB, 6GB, 8GB, 16GB, 32GB, 64GB)
+echo.
+echo. 
+set choice=
+set /p choice=Amount of RAM:
+if not '%choice%'=='' set choice=%choice:~0,1%
+if '%choice%'=='4GB' goto :4GBRam
+if '%choice%'=='6GB' goto :6GBRam
+if '%choice%'=='8GB' goto :8GBRam
+if '%choice%'=='16GB' goto :16GBRam
+if '%choice%'=='32GB' goto :32GBRam
+if '%choice%'=='64GB' goto :64GBRam
+goto:SpecificTweaks
+::========================================================================================================================================
+:HardwareDataQueueSize
+Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\mouclass\Parameters" /v "MouseDataQueueSize" /t REG_DWORD /d "20" /f
+Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\kbdclass\Parameters" /v "KeyboardDataQueueSize" /t REG_DWORD /d "20" /f
 goto:SpecificTweaks

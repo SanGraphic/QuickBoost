@@ -1,5 +1,5 @@
 @echo off
-title Compiled by SanGraphic # 5833
+title QuickBoost by @SanGraphic
 color 4
 cls
 echo.
@@ -15,33 +15,34 @@ goto home
 :home
 color b
 cls
+::========================================================================================================================================
 echo.
+echo:
+echo:
+echo                            _______________________________________________________________
+echo                           ^|                                                               ^| 
+echo                           ^|      QuickBoost: Automated Tweaking Utility                   ^|
+echo                           ^|      __________________________________________________       ^| 
+echo                           ^|                                                               ^|
+echo                           ^|      [1] Apply All Tweaks                                     ^|
+echo                           ^|                                                               ^|
+echo                           ^|      [2] Apply Specific Tweaks                                ^|
+echo                           ^|                                                               ^|
+echo                           ^|      [3] Clear Temporary Files                                ^|
+echo                           ^|                                                               ^|
+echo                           ^|                                                               ^|
+echo                           ^|                                                               ^|
+echo                           ^|                                                               ^|
+echo                           ^|                                                               ^|
+echo                           ^|      [4] Exit                                                 ^|
+echo                           ^|_______________________________________________________________^|
 echo.
-echo.
-echo    *******            **         **     ******                               **  
-echo   **/////**          //         /**    /*////**                             /**  
-echo  **     //**  **   ** **  ***** /**  **/*   /**   ******   ******   ****** ******
-echo /**      /** /**  /**/** **///**/** ** /******   **////** **////** **//// ///**/ 
-echo /**    **/** /**  /**/**/**  // /****  /*//// **/**   /**/**   /**//*****   /**  
-echo //**  // **  /**  /**/**/**   **/**/** /*    /**/**   /**/**   /** /////**  /**  
-echo  //******* **//******/**//***** /**//**/******* //****** //******  ******   //** 
-echo   /////// //  ////// //  /////  //  // ///////   //////   //////  //////     //  
-
-echo.                                                                                                                                                                
-echo   Last Updated 4/29/2021 ( + Minimal GUI and RAM Tweaks )
-echo.
-echo.
-ECHO 1. Apply All Tweaks
-ECHO 2. Clear Temporary Files
-echo.
-echo.
-set choice=
-set /p choice=Choose an Option:
-if not '%choice%'=='' set choice=%choice:~0,1%
-if '%choice%'=='1' goto :ApplyAllTweaks
-if '%choice%'=='2' goto :TempFilesClear
-ECHO "%choice%" is not valid, try again
-
+choice /C:123456789 /N /M ">                         Enter Your Choice in the Keyboard [1,2,3,4] : "	
+if errorlevel  4 exit
+if errorlevel  3 goto:TempFilesClear
+if errorlevel  2 goto:SpecificTweaks
+if errorlevel  1 goto:ApplyAllTweaks
+::========================================================================================================================================
 :ApplyAllTweaks
 cls
 
@@ -755,8 +756,6 @@ echo        /**/**//////**/**   //****  //**  ////**/**  //** /**//////**/**    
 echo  ******** /**     /**/**    //***   //******** /**   //**/**     /**/**      /**     /**/** //****** 
 echo ////////  //      // //      ///     ////////  //     // //      // //       //      // //   //////  
 echo.
-ping 127.0.0.1 -n 2 >nul
-ping 127.0.0.1 -n 3 >nul
 @echo off
 del /q /s %systemdrive%\$Recycle.bin\*
 for /d %%x in (%systemdrive%\$Recycle.bin\*) do @rd /s /q "%%x"
@@ -847,3 +846,80 @@ start "" /wait "C:\Windows\System32\cleanmgr.exe" /sagerun:50
 echo.
 
 goto :home
+
+:SpecificTweaks
+cls
+::========================================================================================================================================
+echo.
+echo:
+echo:
+echo                            _______________________________________________________________
+echo                           ^|                                                               ^| 
+echo                           ^|      Apply Specific Tweak:                                    ^|
+echo                           ^|      __________________________________________________       ^| 
+echo                           ^|                                                               ^|
+echo                           ^|      [1] Enable FSE and Disable GameBar                       ^|
+echo                           ^|                                                               ^|
+echo                           ^|      [2] Install Timer Resolution Service                     ^|
+echo                           ^|                                                               ^|
+echo                           ^|      [3] Disable Power Throttling                             ^|
+echo                           ^|                                                               ^|
+echo                           ^|      [4] Apply System Profile (GPU and Network Tweaks)        ^|
+echo                           ^|                                                               ^|
+echo                           ^|                                                               ^|
+echo                           ^|                                                               ^|
+echo                           ^|                                                               ^|
+echo                           ^|                                                               ^|
+echo                           ^|      [9] Back                                                 ^|
+echo                           ^|                                                               ^|
+echo                           ^|                                                               ^|
+echo                           ^|                                                               ^|
+echo                           ^|                                                               ^|
+echo                           ^|_______________________________________________________________^|
+echo.
+choice /C:123456789 /N /M ">                         Enter Your Choice on the Keyboard [1,2,3,4] : "	
+if errorlevel  9 goto:home
+if errorlevel  4 goto:ApplySystemprofile
+if errorlevel  3 goto:DisablePowerThrottling
+if errorlevel  2 goto:InstallTimerRes
+if errorlevel  1 goto:FSEgamebar
+::========================================================================================================================================
+:FSEgamebar
+echo Enabling Full-screen Exclusive
+Reg.exe delete "HKCU\System\GameConfigStore" /v "Win32_AutoGameModeDefaultProfile" /f
+Reg.exe delete "HKCU\System\GameConfigStore" /v "Win32_GameModeRelatedProcesses" /f
+Reg.exe add "HKCU\System\GameConfigStore" /v "GameDVR_DSEBehavior" /t REG_DWORD /d "2" /f
+Reg.exe add "HKCU\System\GameConfigStore" /v "GameDVR_DXGIHonorFSEWindowsCompatible" /t REG_DWORD /d "1" /f
+Reg.exe add "HKCU\System\GameConfigStore" /v "GameDVR_EFSEFeatureFlags" /t REG_DWORD /d "0" /f
+Reg.exe add "HKCU\System\GameConfigStore" /v "GameDVR_Enabled" /t REG_DWORD /d "0" /f
+Reg.exe add "HKCU\System\GameConfigStore" /v "GameDVR_FSEBehavior" /t REG_DWORD /d "2" /f
+Reg.exe add "HKCU\System\GameConfigStore" /v "GameDVR_FSEBehaviorMode" /t REG_DWORD /d "2" /f
+Reg.exe add "HKCU\System\GameConfigStore" /v "GameDVR_HonorUserFSEBehaviorMode" /t REG_DWORD /d "1" /f
+Reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows\GameDVR" /v "AllowGameDVR" /t REG_DWORD /d "0" /f
+Reg.exe add "HKLM\SOFTWARE\Microsoft\PolicyManager\default\ApplicationManagement\AllowGameDVR" /v "value" /t REG_DWORD /d "0" /f
+goto:SpecificTweaks
+::========================================================================================================================================
+:InstallTimerRes
+Echo Installing Timer Resolution Service
+echo.
+powershell Invoke-WebRequest "https://cdn.discordapp.com/attachments/460788721789173760/836161440103923732/SetTimerResolutionService.exe" -OutFile "C:\Windows\SetTimerResolutionService.exe"
+"C:\Windows\SetTimerResolutionService.exe" -install
+sc start STR
+goto:SpecificTweaks
+::========================================================================================================================================
+:DisablePowerThrottling
+Echo Disabling PowerThrottling 
+Reg.exe add "HKLM\SYSTEM\ControlSet001\Control\Power\PowerThrottling" /v "PowerThrottlingOff" /t REG_DWORD /d "1" /f
+goto:SpecificTweaks
+::========================================================================================================================================
+:ApplySystemprofile
+echo Applying SystemProfile (GPU and Network) Tweaks.
+Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile" /v "NetworkThrottlingIndex" /t REG_DWORD /d "10" /f
+Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile" /v "SystemResponsiveness" /t REG_DWORD /d "10" /f
+Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile" /v "NoLazyMode" /t REG_DWORD /d "1" /f
+Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games" /v "Background Only" /t REG_SZ /d "False" /f
+Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games" /v "GPU Priority" /t REG_DWORD /d "18" /f
+Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games" /v "Priority" /t REG_DWORD /d "6" /f
+Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games" /v "Scheduling Category" /t REG_SZ /d "High" /f
+Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games" /v "SFIO Priority" /t REG_SZ /d "High" /f
+goto:SpecificTweaks

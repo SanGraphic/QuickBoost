@@ -182,17 +182,14 @@ echo.
 timeout 2 >nul
 cls
 ::========================================================================================================================================
+echo 1. Remove Preinstalled Apps
+echo 2. Keep Preinstalled Apps
 echo.
-ECHO 1. Remove / Debloat Preinstalled Apps (Safe)
-ECHO 2. Keep Preinstalled Apps
-echo.
-echo.
-set choice=
-set /p choice=Choose an Option:
-if not '%choice%'=='' set choice=%choice:~0,1%
-if '%choice%'=='1' goto:RemovePreinstalled
-if '%choice%'=='2' goto:KeepApps
-ECHO "%choice%" is not valid, try again
+
+choice /C:123456789 /N /M ">                         Enter Your Choice in the Keyboard [1,2] : "	
+if errorlevel  2 goto:KeepApps
+if errorlevel  1 goto:RemovePreinstalled
+
 
 :RemovePreinstalled
 @rem Debloat Windows & Remove Preinstalled Programs

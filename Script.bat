@@ -181,7 +181,7 @@ Echo. [101;41mThe Telemetry Tasks has been disabled![0m
 echo.
 timeout 2 >nul
 cls
-
+::========================================================================================================================================
 echo.
 ECHO 1. Remove / Debloat Preinstalled Apps (Safe)
 ECHO 2. Keep Preinstalled Apps
@@ -190,8 +190,8 @@ echo.
 set choice=
 set /p choice=Choose an Option:
 if not '%choice%'=='' set choice=%choice:~0,1%
-if '%choice%'=='1' goto :RemovePreinstalled
-if '%choice%'=='2' goto :KeepPreinstalled
+if '%choice%'=='1' goto:RemovePreinstalled
+if '%choice%'=='2' goto:KeepApps
 ECHO "%choice%" is not valid, try again
 
 :RemovePreinstalled
@@ -222,9 +222,9 @@ PowerShell -Command "Get-AppxPackage *Drawboard PDF* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *WindowsFeedbackHub* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *BingWeather* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Office.OneNote* | Remove-AppxPackage"
-goto :KeepPreinstalled
+goto:KeepApps
 
-:KeepPreinstalled
+:KeepApps
 cls
 echo What is your System Type:
 echo.

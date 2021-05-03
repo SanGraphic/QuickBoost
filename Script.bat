@@ -190,8 +190,8 @@ echo.
 set choice=
 set /p choice=Choose an Option:
 if not '%choice%'=='' set choice=%choice:~0,1%
-if '%choice%'=='1' goto :RemovePreinstalled
-if '%choice%'=='2' goto :KeepPreinstalled
+if '%choice%'=='1' goto:RemovePreinstalled
+if '%choice%'=='2' goto:KeepPreinstalled
 ECHO "%choice%" is not valid, try again
 
 :RemovePreinstalled
@@ -222,8 +222,7 @@ PowerShell -Command "Get-AppxPackage *Drawboard PDF* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *WindowsFeedbackHub* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *BingWeather* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Office.OneNote* | Remove-AppxPackage"
-goto :KeepPreinstalled
-
+goto:KeepPreinstalled
 :KeepPreinstalled
 cls
 echo What is your System Type:

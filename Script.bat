@@ -11,7 +11,7 @@ echo.
 echo.
 echo.
 pause
-goto home
+goto:home
 :home
 color b
 cls
@@ -37,7 +37,7 @@ echo                           ^|                                               
 echo                           ^|      [6] Exit                                                 ^|
 echo                           ^|_______________________________________________________________^|
 echo.
-choice /C:123456789 /N /M ">                      Enter Your Choice in the Keyboard [1,2,3,4,5,6] : "	
+choice /C:123456 /N /M ">                         Enter Your Choice on the Keyboard [1,2,3..] : "	
 if errorlevel  6 exit
 if errorlevel  5 goto:downloadprogram
 if errorlevel  4 goto:TempFilesClear
@@ -45,6 +45,54 @@ if errorlevel  3 goto:AdvancedTweaks
 if errorlevel  2 goto:SpecificTweaks
 if errorlevel  1 goto:ApplyAllTweaks
 ::========================================================================================================================================
+:downloadprogram
+cls
+echo.
+echo:
+echo:
+echo                            _______________________________________________________________
+echo                           ^|                                                               ^| 
+echo                           ^|      Download Optimization Programs:                          ^|
+echo                           ^|      __________________________________________________       ^| 
+echo                           ^|                                                               ^|
+echo                           ^|      [1] Autoruns (Disable Start-ups)                         ^|
+echo                           ^|                                                               ^|
+echo                           ^|      [2] Nvidia Profile Inspector                             ^|
+echo                           ^|                                                               ^|
+echo                           ^|      [3] MSI Mode Utility                                     ^|
+echo                           ^|                                                               ^|
+echo                           ^|                                                               ^|
+echo                           ^|                                                               ^|
+echo                           ^|      [9] Back                                                 ^|
+echo                           ^|_______________________________________________________________^|
+echo.
+choice /C:1239 /N /M ">                         Enter Your Choice on the Keyboard [1,2,3..] : "	
+if errorlevel  9 goto:home
+if errorlevel  4 goto:DownloadClearmgr
+if errorlevel  3 goto:DownloadMsiMode
+if errorlevel  2 goto:DownloadNVinspector
+if errorlevel  1 goto:Downloadautoruns
+::========================================================================================================================================
+:DownloadNVinspector
+md "%USERPROFILE%\Desktop\OptimizationPrograms"
+powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/836340936865742918/nvidiaProfileInspector.exe' -OutFile %USERPROFILE%\Desktop\OptimizationPrograms\nvidiaProfileInspector.exe
+Start %USERPROFILE%\Desktop\OptimizationPrograms\nvidiaProfileInspector.exe
+goto:downloadprogram
+::========================================================================================================================================
+:DownloadMsiMode
+md "%USERPROFILE%\Desktop\OptimizationPrograms"
+powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/838890782555111444/MSI_util_v3.exe' -OutFile %USERPROFILE%\Desktop\OptimizationPrograms\MSI_util_v3.exe
+Start %USERPROFILE%\Desktop\OptimizationPrograms\MSI_util_v3.exe
+goto:downloadprogram
+::========================================================================================================================================
+:Downloadautoruns
+md "%USERPROFILE%\Desktop\OptimizationPrograms"
+powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/838890691010101288/Autoruns.exe' -OutFile %USERPROFILE%\Desktop\OptimizationPrograms\Autoruns.exe
+Start %USERPROFILE%\Desktop\OptimizationPrograms\Autoruns.exe
+goto:downloadprogram
+::========================================================================================================================================
+
+
 :ApplyAllTweaks
 cls
 
@@ -866,14 +914,17 @@ echo                           ^|      [3] Apply System Profile (GPU and Network
 echo                           ^|                                                               ^|
 echo                           ^|      [4] Disable Unnecessary System Services                  ^|
 echo                           ^|                                                               ^|
-echo                           ^|      [5] Import QuickBoost PowerPlan                          ^|
+echo                           ^|      [5] Disable Start-up Programs (Manual)                   ^|
 echo                           ^|                                                               ^|
-echo                           ^|      [5] Back                                                 ^|
+echo                           ^|      [6] Import QuickBoost PowerPlan                          ^|
+echo                           ^|                                                               ^|
+echo                           ^|      [9] Back                                                 ^|
 echo                           ^|_______________________________________________________________^|
 echo.
-choice /C:123456789 /N /M ">                         Enter Your Choice on the Keyboard [1,2,3,4] : "	
+choice /C:1234569 /N /M ">                         Enter Your Choice on the Keyboard [1,2,3..] : "	
 if errorlevel  9 goto:home
-if errorlevel  5 goto:installpowerplan
+if errorlevel  6 goto:installpowerplan
+if errorlevel  5 goto:disablestartups
 if errorlevel  4 goto:disablesystemservices
 if errorlevel  3 goto:DisablePowerThrottling
 if errorlevel  2 goto:InstallTimerRes
@@ -941,6 +992,10 @@ if '%choice%'=='8GB' goto :8GBRam
 if '%choice%'=='16GB' goto :16GBRam
 if '%choice%'=='32GB' goto :32GBRam
 if '%choice%'=='64GB' goto :64GBRam
+goto:SpecificTweaks
+::========================================================================================================================================
+:disablestartups
+start %windir%\system32\Taskmgr.exe /7 /startup
 goto:SpecificTweaks
 ::========================================================================================================================================
 :HardwareDataQueueSize
@@ -1104,7 +1159,7 @@ echo                           ^|                                               
 echo                           ^|      [6] Back                                                 ^|
 echo                           ^|_______________________________________________________________^|
 echo.
-choice /C:123456789 /N /M ">                         Enter Your Choice on the Keyboard [1,2,3,4] : "	
+choice /C:123456 /N /M ">                         Enter Your Choice on the Keyboard [1,2,3,4] : "	
 if errorlevel  6 goto:home
 if errorlevel  5 goto:HardwareDataQueueSize
 if errorlevel  4 goto:HostSplitThreshold

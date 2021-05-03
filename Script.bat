@@ -878,7 +878,7 @@ echo.
 choice /C:123456789 /N /M ">                         Enter Your Choice on the Keyboard [1,2,3,4] : "	
 if errorlevel  9 goto:home
 if errorlevel  7 goto:HardwareDataQueueSize
-if errorlevel  6 goto:SvcHostSplitThreshold
+if errorlevel  6 goto:HostSplitThreshold
 if errorlevel  5 goto:ApplyBCDTweaks
 if errorlevel  4 goto:ApplySystemprofile
 if errorlevel  3 goto:DisablePowerThrottling
@@ -933,7 +933,7 @@ bcdedit /deletevalue useplatformclock
 bcdedit /set useplatformtick yes
 goto:SpecificTweaks
 ::========================================================================================================================================
-:SvcHostSplitThreshold
+:HostSplitThreshold
 cls
 echo Enter the amount of RAM that you have. (Example: 4GB, 6GB, 8GB, 16GB, 32GB, 64GB)
 echo.

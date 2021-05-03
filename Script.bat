@@ -63,11 +63,11 @@ echo                           ^|      [3] MSI Mode Utility                     
 echo                           ^|                                                               ^|
 echo                           ^|                                                               ^|
 echo                           ^|                                                               ^|
-echo                           ^|      [9] Back                                                 ^|
+echo                           ^|      [5] Back                                                 ^|
 echo                           ^|_______________________________________________________________^|
 echo.
-choice /C:1239 /N /M ">                         Enter Your Choice on the Keyboard [1,2,3..] : "	
-if errorlevel  9 goto:home
+choice /C:12345 /N /M ">                         Enter Your Choice on the Keyboard [1,2,3..] : "	
+if errorlevel  5 goto:home
 if errorlevel  4 goto:DownloadClearmgr
 if errorlevel  3 goto:DownloadMsiMode
 if errorlevel  2 goto:DownloadNVinspector
@@ -918,10 +918,10 @@ echo                           ^|      [5] Disable Start-up Programs (Manual)   
 echo                           ^|                                                               ^|
 echo                           ^|      [6] Import QuickBoost PowerPlan                          ^|
 echo                           ^|                                                               ^|
-echo                           ^|      [9] Back                                                 ^|
+echo                           ^|      [7] Back                                                 ^|
 echo                           ^|_______________________________________________________________^|
 echo.
-choice /C:1234569 /N /M ">                         Enter Your Choice on the Keyboard [1,2,3..] : "	
+choice /C:1234567 /N /M ">                         Enter Your Choice on the Keyboard [1,2,3..] : "	
 if errorlevel  9 goto:home
 if errorlevel  6 goto:installpowerplan
 if errorlevel  5 goto:disablestartups

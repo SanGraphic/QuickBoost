@@ -34,11 +34,14 @@ echo                           ^|      [4] Clear Temporary Files                
 echo                           ^|                                                               ^|
 echo                           ^|      [5] Download Optimization Programs                       ^|
 echo                           ^|                                                               ^|
-echo                           ^|      [6] Exit                                                 ^|
+echo                           ^|      [6] Info and Credits                                     ^|
+echo                           ^|                                                               ^|
+echo                           ^|      [7] Exit                                                 ^|
 echo                           ^|_______________________________________________________________^|
 echo.
 choice /C:123456 /N /M ">                         Enter Your Choice on the Keyboard [1,2,3..] : "	
-if errorlevel  6 exit
+if errorlevel  7 exit
+if errorlevel  6 goto:credits
 if errorlevel  5 goto:downloadprogram
 if errorlevel  4 goto:TempFilesClear
 if errorlevel  3 goto:AdvancedTweaks
@@ -959,7 +962,7 @@ goto:SpecificTweaks
 :DisablePowerThrottling
 Echo Disabling PowerThrottling 
 Reg.exe add "HKLM\SYSTEM\ControlSet001\Control\Power\PowerThrottling" /v "PowerThrottlingOff" /t REG_DWORD /d "1" /f
-goto:SpecificTweaks
+goto:AdvancedTweaks
 ::========================================================================================================================================
 :ApplySystemprofile
 echo Applying SystemProfile (GPU and Network) Tweaks.
@@ -979,7 +982,7 @@ echo.
 bcdedit /set disabledynamictick yes
 bcdedit /deletevalue useplatformclock
 bcdedit /set useplatformtick yes
-goto:SpecificTweaks
+goto:AdvancedTweaks
 ::========================================================================================================================================
 :HostSplitThreshold
 cls
@@ -995,7 +998,7 @@ if '%choice%'=='8GB' goto :8GBRam
 if '%choice%'=='16GB' goto :16GBRam
 if '%choice%'=='32GB' goto :32GBRam
 if '%choice%'=='64GB' goto :64GBRam
-goto:SpecificTweaks
+goto:AdvancedTweaks
 ::========================================================================================================================================
 :disablestartups
 start %windir%\system32\Taskmgr.exe /7 /startup
@@ -1004,7 +1007,7 @@ goto:SpecificTweaks
 :HardwareDataQueueSize
 Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\mouclass\Parameters" /v "MouseDataQueueSize" /t REG_DWORD /d "20" /f
 Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\kbdclass\Parameters" /v "KeyboardDataQueueSize" /t REG_DWORD /d "20" /f
-goto:SpecificTweaks
+goto:AdvancedTweaks
 ::========================================================================================================================================
 :disablesystemservices
 cls
@@ -1169,3 +1172,38 @@ if errorlevel  4 goto:HostSplitThreshold
 if errorlevel  3 goto:ApplyBCDTweaks
 if errorlevel  2 goto:ApplySystemprofile
 if errorlevel  1 goto:DisablePowerThrottling
+
+:credits
+cls
+::========================================================================================================================================
+echo.
+echo:
+echo:
+echo                            _______________________________________________________________
+echo                           ^|                                                               ^| 
+echo                           ^|      QuickBoost: Info and Credits                             ^|
+echo                           ^|      __________________________________________________       ^| 
+echo                           ^|                                                               ^|
+echo                           ^|      - @ SanGraphic (Dev)                                     ^|
+echo                           ^|                                                               ^|
+echo                           ^|      - @ DarkEnvyTweaks (Exposure)                            ^|
+echo                           ^|                                                               ^|
+echo                           ^|                                                               ^|
+echo                           ^|      Honorable Mentions                                       ^|
+echo                           ^|      __________________________________________________       ^| 
+echo                           ^|                                                               ^|
+echo                           ^|      - AdamX (Adamx#0001)                                     ^|
+echo                           ^|                                                               ^|
+echo                           ^|      - Fanta (FΛNTΛ#1543)                                     ^|
+echo                           ^|                                                               ^|
+echo                           ^|      - X1lly (@x1lly Twitter)                                 ^|
+echo                           ^|                                                               ^|
+echo                           ^|      - gg OS (Phlegm#4053)                                    ^|
+echo                           ^|                                                               ^|
+echo                           ^|                                                               ^|
+echo                           ^|      [1] Back                                                 ^|
+echo                           ^|_______________________________________________________________^|
+echo.
+choice /C:1 /N /M ">                         Enter Your Choice on the Keyboard [1,2,3..] : "	
+if errorlevel  1 goto:home
+::========================================================================================================================================

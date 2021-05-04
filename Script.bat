@@ -95,6 +95,9 @@ goto:downloadprogram
 
 :ApplyAllTweaks
 cls
+echo Making System Restore point just incase you forgot
+echo.
+wmic /namespace:\\root\default path systemrestore call createrestorepoint "QuickBoost", 100, 12 >nul 2>&1
 
 @echo off
 REM *** Disable Start-up Telemetry and Programs to Improve Startup and Memory Usage ***

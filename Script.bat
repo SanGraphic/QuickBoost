@@ -1,6 +1,7 @@
 @echo off
 title QuickBoost by @SanGraphic
 color 4
+start "" https://twitter.com/intent/user?screen_name=sangraphic
 cls
 echo.
 echo.

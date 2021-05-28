@@ -1,7 +1,6 @@
 @echo off
 title QuickBoost by @SanGraphic
 color 4
-start "" https://twitter.com/intent/user?screen_name=sangraphic
 cls
 echo.
 echo.
@@ -22,7 +21,7 @@ echo:
 echo:
 echo                            _______________________________________________________________
 echo                           ^|                                                               ^| 
-echo                           ^|      QuickBoost: Automated Tweaking Utility                   ^|
+echo                           ^|      QuickBoost: Automated Tweaking Utility (June 2021)       ^|
 echo                           ^|      __________________________________________________       ^| 
 echo                           ^|                                                               ^|
 echo                           ^|      [1] Apply All Tweaks                                     ^|
@@ -787,6 +786,16 @@ SET tmpmsgbox=%temp%\~tmpmsgbox.vbs
 IF EXIST "%tmpmsgbox%" DEL /F /Q "%tmpmsgbox%"
 ECHO msgbox "%msgboxBody%",0,"%msgboxTitle%">"%tmpmsgbox%"
 WSCRIPT "%tmpmsgbox%"
+@echo off
+
+    call :MsgBox "Would you like to Restart?"  "VBYesNo+VBQuestion" "@SanGraphic"
+    if errorlevel 7 (
+        echo NO - don't restart
+    ) else if errorlevel 6 (
+        echo YES - restart
+        shutdown.exe /r /t 00
+    )
+
 start "" https://discord.gg/FTJJSmn2Nc
 del /f "C:\Windows\QuickBoostScript.bat"
 exit
@@ -1207,3 +1216,11 @@ echo.
 choice /C:1 /N /M ">                         Enter Your Choice on the Keyboard [1,2,3..] : "	
 if errorlevel  1 goto:home
 ::========================================================================================================================================
+
+
+:MsgBox prompt type title
+    setlocal enableextensions
+    set "tempFile=%temp%\%~nx0.%random%%random%%random%vbs.tmp"
+    >"%tempFile%" echo(WScript.Quit msgBox("%~1",%~2,"%~3") & cscript //nologo //e:vbscript "%tempFile%"
+    set "exitCode=%errorlevel%" & del "%tempFile%" >nul 2>nul
+    endlocal & exit /b %exitCode%

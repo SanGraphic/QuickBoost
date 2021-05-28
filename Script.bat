@@ -280,13 +280,12 @@ goto:KeepApps
 cls
 ::========================================================================================================================================
 echo What is your System Type:
-echo.
-ECHO 1. Desktop
-ECHO 2. Laptop
-ECHO.
-choice /C:123456789 /N /M "> Enter Your Choice in the Keyboard [1,2] : "	
-if errorlevel  2 goto:DesktopPC
-if errorlevel  1 goto:LaptopPC
+    call :MsgBox "Are you a Desktop user?"  "VBYesNo+VBQuestion" "@SanGraphic"
+    if errorlevel 7 (
+        echo goto:LaptopPC 
+    ) else if errorlevel 6 (
+        echo goto:DesktopPC
+    )
 ::========================================================================================================================================
 
 :DesktopPC
@@ -418,7 +417,14 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Themes" /v "Start"
 echo Enabling Hardware Accelerated GPU Scheduling
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers" /F /V "HwSchMode" /T REG_DWORD /d "2"
 
-echo Enabling Full-screen Exclusive for lower input delay
+@echo off
+
+    call :MsgBox "Would you like Full Screen Exclusive? lower input delay & better performance but 3 second Alt-tab (black screen)"  "VBYesNo+VBQuestion" "@SanGraphic"
+    if errorlevel 7 (
+        echo NO - don't 
+    ) else if errorlevel 6 (
+        echo YES - Enable
+        echo Enabling Full-screen Exclusive for lower input delay
 Reg.exe delete "HKCU\System\GameConfigStore" /v "Win32_AutoGameModeDefaultProfile" /f
 Reg.exe delete "HKCU\System\GameConfigStore" /v "Win32_GameModeRelatedProcesses" /f
 Reg.exe add "HKCU\System\GameConfigStore" /v "GameDVR_DSEBehavior" /t REG_DWORD /d "2" /f
@@ -430,6 +436,9 @@ Reg.exe add "HKCU\System\GameConfigStore" /v "GameDVR_FSEBehaviorMode" /t REG_DW
 Reg.exe add "HKCU\System\GameConfigStore" /v "GameDVR_HonorUserFSEBehaviorMode" /t REG_DWORD /d "1" /f
 Reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows\GameDVR" /v "AllowGameDVR" /t REG_DWORD /d "0" /f
 Reg.exe add "HKLM\SOFTWARE\Microsoft\PolicyManager\default\ApplicationManagement\AllowGameDVR" /v "value" /t REG_DWORD /d "0" /f
+    )
+
+
 
 echo Adding more ram for applications in system memory caching to improve microstuttering
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v "LargeSystemCache" /t REG_DWORD /d "1" /f

@@ -660,6 +660,7 @@ sc start STR
 timeout 2 >nul
 
 cls
+cls
 @echo off
 color b
 echo Removing Unwanted unnecessary and temporary files%mSpinner%
@@ -674,9 +675,15 @@ echo        /**/**//////**/**   //****  //**  ////**/**  //** /**//////**/**    
 echo  ******** /**     /**/**    //***   //******** /**   //**/**     /**/**      /**     /**/** //****** 
 echo ////////  //      // //      ///     ////////  //     // //      // //       //      // //   //////  
 echo.
-ping 127.0.0.1 -n 2 >nul
-ping 127.0.0.1 -n 3 >nul
 @echo off
+
+takeown /f %LocalAppData%\Microsoft\Windows\Explorer\ /r /d y
+takeown /f %%G\AppData\Local\Temp\ /r /d y
+takeown /f %SystemRoot%\TEMP\ /r /d y
+takeown /f %systemdrive%\$Recycle.bin\ /r /d y
+takeown /f C:\Users\%USERNAME%\AppData\Local\BraveSoftware\Brave-Browser\User Data\Default\Code Cache\ /r /d y
+takeown /f C:\Users\%USERNAME%\AppData\Local\Fortnitegame\saved\ /r /d y
+takeown /f C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data\Default\Code Cache\ /r /d y
 del /q /s %systemdrive%\$Recycle.bin\*
 for /d %%x in (%systemdrive%\$Recycle.bin\*) do @rd /s /q "%%x"
 cls
@@ -829,6 +836,14 @@ echo  ******** /**     /**/**    //***   //******** /**   //**/**     /**/**    
 echo ////////  //      // //      ///     ////////  //     // //      // //       //      // //   //////  
 echo.
 @echo off
+
+takeown /f %LocalAppData%\Microsoft\Windows\Explorer\ /r /d y
+takeown /f %%G\AppData\Local\Temp\ /r /d y
+takeown /f %SystemRoot%\TEMP\ /r /d y
+takeown /f %systemdrive%\$Recycle.bin\ /r /d y
+takeown /f C:\Users\%USERNAME%\AppData\Local\BraveSoftware\Brave-Browser\User Data\Default\Code Cache\ /r /d y
+takeown /f C:\Users\%USERNAME%\AppData\Local\Fortnitegame\saved\ /r /d y
+takeown /f C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data\Default\Code Cache\ /r /d y
 del /q /s %systemdrive%\$Recycle.bin\*
 for /d %%x in (%systemdrive%\$Recycle.bin\*) do @rd /s /q "%%x"
 cls

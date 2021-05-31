@@ -590,16 +590,13 @@ Reg.exe add "HKCR\Directory\shell\runas\command" /v "IsolatedCommand" /t REG_SZ 
 cls
 cls
 echo What Brand is Your GPU?
-echo.
-echo type 1 if Nvidia
-echo type 2 if AMD
-
-set choice=
-set /p choice=Choose an Option:
-if not '%choice%'=='' set choice=%choice:~0,1%
-if '%choice%'=='1' goto :NV
-if '%choice%'=='2' goto :AMD
-ECHO "%choice%" is not valid, try again
+echo 1. Nvidia
+echo 2. AMD
+echo 3. Intel
+choice /C:123 /N /M "> Enter Your Choice on the Keyboard [1,2,3..] : "	
+if errorlevel  3 goto:AMD
+if errorlevel  2 goto:AMD
+if errorlevel  1 goto:NV
 
 :NV
 cls
@@ -607,12 +604,9 @@ echo.
 echo 1. Better Average FPS (Stability)
 echo 2. Better Max FPS (for show-off)
 echo.   
-set choice=
-set /p choice=Choose an Option:
-if not '%choice%'=='' set choice=%choice:~0,1%
-if '%choice%'=='1' goto :NV1
-if '%choice%'=='2' goto :NV2
-ECHO "%choice%" is not valid, try again
+choice /C:123 /N /M "> Enter Your Choice on the Keyboard [1,2,3..] : "	
+if errorlevel  2 goto:NV2
+if errorlevel  1 goto:NV1
 
 
 
@@ -703,21 +697,31 @@ set AppleDir=C:\ProgramData\Apple\Installer Cache
 del /s /Q /f "%AppleDir%"
 rd /s /q "%AppleDir%"
 
+@echo off
+tasklist /fi "ImageName eq chrome.exe" /fo csv 2>NUL | find /I "chrome.exe">NUL
+if "%ERRORLEVEL%"=="0"     call :MsgBox "Would you like to close Chrome Browser to clear cache & Temp Files?"  "VBYesNo+VBQuestion" "@SanGraphic"
+    if errorlevel 7 (
+        echo NO - don't 
+    ) else if errorlevel 6 (
+        echo YES - Enable
+        taskkill /F /IM chrome.exe /T > nul
+
+
 set ChromeDir=C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data\Default\Code Cache\Js
-del /s /Q /f "%ChromeDir%"
-rd /s /q "%ChromeDir%"
+del /s /Q /f "%ChromeDir%"> nul
+rd /s /q "%ChromeDir%"> nul
 
 set FortDir=C:\Users\%USERNAME%\AppData\Local\Fortnitegame\saved\Logs
-del /s /Q /f "%FortDir%"
-rd /s /q "%FortDir%"
+del /s /Q /f "%FortDir%"> nul
+rd /s /q "%FortDir%"> nul
 
 set EpicDir=C:\Users\%USERNAME%\AppData\Local\EpicGamesLauncher\Saved\Logs
-del /s /Q /f "%EpicDir%"
-rd /s /q "%EpicDir%"
+del /s /Q /f "%EpicDir%"> nul
+rd /s /q "%EpicDir%"> nul
 
 set EbicDir=C:\Users\%USERNAME%\AppData\Local\EpicGamesLauncher\Saved\Crashes
-del /s /Q /f "%EbicDir%"
-rd /s /q "%EbicDir%"
+del /s /Q /f "%EbicDir%"> nul
+rd /s /q "%EbicDir%"> nul
 
 cls
 
@@ -863,21 +867,31 @@ set AppleDir=C:\ProgramData\Apple\Installer Cache
 del /s /Q /f "%AppleDir%"
 rd /s /q "%AppleDir%"
 
+@echo off
+tasklist /fi "ImageName eq chrome.exe" /fo csv 2>NUL | find /I "chrome.exe">NUL
+if "%ERRORLEVEL%"=="0"     call :MsgBox "Would you like to close Chrome Browser to clear cache & Temp Files?"  "VBYesNo+VBQuestion" "@SanGraphic"
+    if errorlevel 7 (
+        echo NO - don't 
+    ) else if errorlevel 6 (
+        echo YES - Enable
+        taskkill /F /IM chrome.exe /T > nul
+
+
 set ChromeDir=C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data\Default\Code Cache\Js
-del /s /Q /f "%ChromeDir%"
-rd /s /q "%ChromeDir%"
+del /s /Q /f "%ChromeDir%"> nul
+rd /s /q "%ChromeDir%"> nul
 
 set FortDir=C:\Users\%USERNAME%\AppData\Local\Fortnitegame\saved\Logs
-del /s /Q /f "%FortDir%"
-rd /s /q "%FortDir%"
+del /s /Q /f "%FortDir%"> nul
+rd /s /q "%FortDir%"> nul
 
 set EpicDir=C:\Users\%USERNAME%\AppData\Local\EpicGamesLauncher\Saved\Logs
-del /s /Q /f "%EpicDir%"
-rd /s /q "%EpicDir%"
+del /s /Q /f "%EpicDir%"> nul
+rd /s /q "%EpicDir%"> nul
 
 set EbicDir=C:\Users\%USERNAME%\AppData\Local\EpicGamesLauncher\Saved\Crashes
-del /s /Q /f "%EbicDir%"
-rd /s /q "%EbicDir%"
+del /s /Q /f "%EbicDir%"> nul
+rd /s /q "%EbicDir%"> nul
 
 cls
 
@@ -995,7 +1009,7 @@ goto:SpecificTweaks
 :DisablePowerThrottling
 Echo Disabling PowerThrottling 
 Reg.exe add "HKLM\SYSTEM\ControlSet001\Control\Power\PowerThrottling" /v "PowerThrottlingOff" /t REG_DWORD /d "1" /f
-goto:AdvancedTweaks
+goto:SpecificTweaks
 ::========================================================================================================================================
 :ApplySystemprofile
 echo Applying SystemProfile (GPU and Network) Tweaks.

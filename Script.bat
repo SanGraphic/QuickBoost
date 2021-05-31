@@ -697,7 +697,6 @@ set AppleDir=C:\ProgramData\Apple\Installer Cache
 del /s /Q /f "%AppleDir%"
 rd /s /q "%AppleDir%"
 
-@echo off
 tasklist /fi "ImageName eq chrome.exe" /fo csv 2>NUL | find /I "chrome.exe">NUL
 if "%ERRORLEVEL%"=="0"     call :MsgBox "Would you like to close Chrome Browser to clear cache & Temp Files?"  "VBYesNo+VBQuestion" "@SanGraphic"
     if errorlevel 7 (
@@ -867,7 +866,6 @@ set AppleDir=C:\ProgramData\Apple\Installer Cache
 del /s /Q /f "%AppleDir%"
 rd /s /q "%AppleDir%"
 
-@echo off
 tasklist /fi "ImageName eq chrome.exe" /fo csv 2>NUL | find /I "chrome.exe">NUL
 if "%ERRORLEVEL%"=="0"     call :MsgBox "Would you like to close Chrome Browser to clear cache & Temp Files?"  "VBYesNo+VBQuestion" "@SanGraphic"
     if errorlevel 7 (

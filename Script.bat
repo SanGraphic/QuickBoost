@@ -266,7 +266,6 @@ PowerShell -Command "Get-AppxPackage *zune* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *WindowsMaps* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Sway* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *CommsPhone* | Remove-AppxPackage"
-PowerShell -Command "Get-AppxPackage *ConnectivityStore* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Microsoft.Messaging* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Facebook* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Twitter* | Remove-AppxPackage"
@@ -758,15 +757,6 @@ Invoke-Command COMPUTERNAME -command{Stop-Process -ProcessName Explorer}
 Invoke-Command COMPUTERNAME -command{Start-Process -ProcessName Explorer}
 powershell Start explorer.exe
 cls
-@echo
-net stop wuauserv
-@echo
-net stop UsoSvc
-@echo
-net stop bits
-@echo
-net stop dosvc
-@echo
 echo Deleting Windows Update Files:
 rd /s /q C:\Windows\SoftwareDistribution
 md C:\Windows\SoftwareDistribution

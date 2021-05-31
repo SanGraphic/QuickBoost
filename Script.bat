@@ -698,14 +698,16 @@ del /s /Q /f "%AppleDir%"
 rd /s /q "%AppleDir%"
 
 tasklist /fi "ImageName eq chrome.exe" /fo csv 2>NUL | find /I "chrome.exe">NUL
+if "%ERRORLEVEL%"=="1"     goto:continueclean
 if "%ERRORLEVEL%"=="0"     call :MsgBox "Would you like to close Chrome Browser to clear cache & Temp Files?"  "VBYesNo+VBQuestion" "@SanGraphic"
     if errorlevel 7 (
-        echo NO - don't 
+        goto:continueclean
     ) else if errorlevel 6 (
         echo YES - Enable
         taskkill /F /IM chrome.exe /T > nul
+goto:continueclean
 
-
+:continueclean
 set ChromeDir=C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data\Default\Code Cache\Js
 del /s /Q /f "%ChromeDir%"> nul
 rd /s /q "%ChromeDir%"> nul
@@ -821,6 +823,7 @@ exit
 
 
 
+__________________________________________________
 
 :TempFilesClear
 cls
@@ -867,14 +870,16 @@ del /s /Q /f "%AppleDir%"
 rd /s /q "%AppleDir%"
 
 tasklist /fi "ImageName eq chrome.exe" /fo csv 2>NUL | find /I "chrome.exe">NUL
+if "%ERRORLEVEL%"=="1"     goto:continueclean
 if "%ERRORLEVEL%"=="0"     call :MsgBox "Would you like to close Chrome Browser to clear cache & Temp Files?"  "VBYesNo+VBQuestion" "@SanGraphic"
     if errorlevel 7 (
-        echo NO - don't 
+        goto:continueclean
     ) else if errorlevel 6 (
         echo YES - Enable
         taskkill /F /IM chrome.exe /T > nul
+goto:continueclean
 
-
+:continueclean
 set ChromeDir=C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data\Default\Code Cache\Js
 del /s /Q /f "%ChromeDir%"> nul
 rd /s /q "%ChromeDir%"> nul

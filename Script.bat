@@ -64,14 +64,14 @@ echo                           ^|      [2] Nvidia Profile Inspector             
 echo                           ^|                                                               ^|
 echo                           ^|      [3] MSI Mode Utility                                     ^|
 echo                           ^|                                                               ^|
-echo                           ^|                                                               ^|
+echo                           ^|      [4] NVCleanstall (Debloated Nvidia Drivers)              ^|
 echo                           ^|                                                               ^|
 echo                           ^|      [5] Back                                                 ^|
 echo                           ^|_______________________________________________________________^|
 echo.
 choice /C:12345 /M "> Enter The Choice on the Keyboard: "	
 if errorlevel  5 goto:home
-if errorlevel  4 goto:DownloadClearmgr
+if errorlevel  4 goto:DownloadNVCleanstall
 if errorlevel  3 goto:DownloadMsiMode
 if errorlevel  2 goto:DownloadNVinspector
 if errorlevel  1 goto:Downloadautoruns
@@ -94,6 +94,13 @@ powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/46
 Start %USERPROFILE%\Desktop\OptimizationPrograms\Autoruns.exe
 goto:downloadprogram
 ::========================================================================================================================================
+:DownloadNVCleanstall
+md "%USERPROFILE%\Desktop\OptimizationPrograms"
+powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/884855265575452712/NVCleanstall.exe' -OutFile %USERPROFILE%\Desktop\OptimizationPrograms\NVCleanstall.exe 
+Start %USERPROFILE%\Desktop\OptimizationPrograms\Autoruns.exe
+goto:downloadprogram
+::========================================================================================================================================
+
 
 
 :ApplyAllTweaks

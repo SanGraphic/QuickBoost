@@ -32,14 +32,14 @@ echo                           ^|      [3] Apply Advanced Tweaks                
 echo                           ^|                                                               ^|
 echo                           ^|      [4] Clear Temporary Files                                ^|
 echo                           ^|                                                               ^|
-echo                           ^|      [5] Download Optimization Programs                       ^|
+echo                           ^|      [5] Downloads (Programs)                                 ^|
 echo                           ^|                                                               ^|
 echo                           ^|      [6] Info and Credits                                     ^|
 echo                           ^|                                                               ^|
 echo                           ^|      [7] Exit                                                 ^|
 echo                           ^|_______________________________________________________________^|
 echo.
-choice /C:123456 /N /M ">                         Enter Your Choice on the Keyboard [1,2,3..] : "	
+choice /C:123456 /M "> Enter The Choice on the Keyboard: "	
 if errorlevel  7 exit
 if errorlevel  6 goto:credits
 if errorlevel  5 goto:downloadprogram
@@ -69,7 +69,7 @@ echo                           ^|                                               
 echo                           ^|      [5] Back                                                 ^|
 echo                           ^|_______________________________________________________________^|
 echo.
-choice /C:12345 /N /M ">                         Enter Your Choice on the Keyboard [1,2,3..] : "	
+choice /C:12345 /M "> Enter The Choice on the Keyboard: "	
 if errorlevel  5 goto:home
 if errorlevel  4 goto:DownloadClearmgr
 if errorlevel  3 goto:DownloadMsiMode
@@ -242,7 +242,7 @@ echo 1. Remove Preinstalled Apps
 echo 2. Keep Preinstalled Apps
 echo.
 
-choice /C:123456789 /N /M "> Enter Your Choice in the Keyboard [1,2] : "	
+choice /C:123456789 /M "> Enter The Choice on the Keyboard: "	
 if errorlevel  2 goto:KeepApps
 if errorlevel  1 goto:RemovePreinstalled
 ::========================================================================================================================================
@@ -601,7 +601,7 @@ echo.
 echo 1. Better Average FPS (Stability)
 echo 2. Better Max FPS (for show-off)
 echo.   
-choice /C:123 /N /M "> Enter Your Choice on the Keyboard [1,2,3..] : "	
+choice /C:123 /M "> Enter The Choice on the Keyboard: "	
 if errorlevel  2 goto:NV2
 if errorlevel  1 goto:NV1
 
@@ -1239,7 +1239,7 @@ echo                           ^|                                               
 echo                           ^|      [1] Back                                                 ^|
 echo                           ^|_______________________________________________________________^|
 echo.
-choice /C:1 /N /M ">                         Enter Your Choice on the Keyboard [1,2,3..] : "	
+choice /C:1 /M "> Enter The Choice on the Keyboard: "	
 if errorlevel  1 goto:home
 ::========================================================================================================================================
 

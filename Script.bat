@@ -97,7 +97,7 @@ goto:downloadprogram
 :DownloadNVCleanstall
 md "%USERPROFILE%\Desktop\OptimizationPrograms"
 powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/884855265575452712/NVCleanstall.exe' -OutFile %USERPROFILE%\Desktop\OptimizationPrograms\NVCleanstall.exe 
-Start %USERPROFILE%\Desktop\OptimizationPrograms\Autoruns.exe
+Start %USERPROFILE%\Desktop\OptimizationPrograms\NVCleanstall.exe 
 goto:downloadprogram
 ::========================================================================================================================================
 

@@ -6,7 +6,7 @@ Wrote this free program / script to help people in need.
 
 ## Join the [discord](https://discord.gg/aDCPgx9n86)
 
-## ⚠ make a system restore point incase anything goes wrong ⚠
+## ⚠ MAKE A SYSTEM RESTORE POINT JUST IN CASE ANYTHING GOES WRONG, TUTORIAL [HERE](https://support.microsoft.com/en-us/windows/create-a-system-restore-point-77e02e2a-3298-c869-9974-ef5658ea3be9) ⚠
 
 # [Download](https://github.com/SanGraphic/QuickBoost/releases)
 

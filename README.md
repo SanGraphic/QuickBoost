@@ -1,10 +1,12 @@
 # QuickBoost: Automated Windows 10 Tweaking Utility
+
+
 ![image](https://media.discordapp.net/attachments/744536520089796671/848833247932710912/unknown.png?width=895&height=468)
 
 
 Code Written & Compiled by [@sangraphic](https://twitter.com/sangraphic),
 
-Wrote this free program / script to help people in need.
+Quickboost is a community project, anyone can help grow and improve the program though pull requests!
 
 ## Join the [discord](https://discord.gg/aDCPgx9n86)
 

@@ -59,6 +59,7 @@ Quickboost is a community project, anyone can help grow and improve the program 
 - Disable Sleep study
 - Disable Aero shake
 
++ more that I don't have the time to write.
 
 
 

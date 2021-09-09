@@ -3,16 +3,15 @@
 
 ![image](https://media.discordapp.net/attachments/744536520089796671/848833247932710912/unknown.png?width=895&height=468)
 
+## ⚠ MAKE A SYSTEM RESTORE POINT JUST IN CASE ANYTHING GOES WRONG, TUTORIAL [HERE](https://support.microsoft.com/en-us/windows/create-a-system-restore-point-77e02e2a-3298-c869-9974-ef5658ea3be9) ⚠
+
+# [Download](https://github.com/SanGraphic/QuickBoost/releases)
 
 Code Written & Compiled by [@sangraphic](https://twitter.com/sangraphic),
 
 Quickboost is a community project, anyone can help grow and improve the program though pull requests!
 
-## Join the [discord](https://discord.gg/aDCPgx9n86)
-
-## ⚠ MAKE A SYSTEM RESTORE POINT JUST IN CASE ANYTHING GOES WRONG, TUTORIAL [HERE](https://support.microsoft.com/en-us/windows/create-a-system-restore-point-77e02e2a-3298-c869-9974-ef5658ea3be9) ⚠
-
-# [Download](https://github.com/SanGraphic/QuickBoost/releases)
+## Join the [discord](https://discord.gg/aDCPgx9n86) for support and suggestions!
 
 ## what does it do? (Simplified Summary)
 

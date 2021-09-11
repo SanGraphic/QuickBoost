@@ -1,7 +1,7 @@
 # QuickBoost: Automated Windows 10 Tweaking Utility
 
 
-![image](![image](https://user-images.githubusercontent.com/44402346/132943353-3db4afe7-acf3-48c0-85cd-74ce1df8583e.png?width=895&height=468)
+![image](https://user-images.githubusercontent.com/44402346/132943353-3db4afe7-acf3-48c0-85cd-74ce1df8583e.png?width=895&height=468)
 
 ## ⚠ MAKE A SYSTEM RESTORE POINT JUST IN CASE ANYTHING GOES WRONG, TUTORIAL [HERE](https://support.microsoft.com/en-us/windows/create-a-system-restore-point-77e02e2a-3298-c869-9974-ef5658ea3be9) ⚠
 

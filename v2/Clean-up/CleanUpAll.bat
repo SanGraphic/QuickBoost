@@ -17,18 +17,6 @@ for /D %%G in ("%SystemRoot%\TEMP*") do RD /S /Q "%%G"
 for /D %%G in ("%SystemDrive%\Users*") do erase /F /S /Q "%%G\AppData\Local\Temp*.*"
 for /D %%G in ("%SystemDrive%\Users*") do RD /S /Q "%%G\AppData\Local\Temp\" 
 
-set FortDir=C:\Users\%USERNAME%\AppData\Local\Fortnitegame\saved\Logs
-del /s /Q /f "%FortDir%"> nul
-rd /s /q "%FortDir%"> nul
-
-set EpicDir=C:\Users\%USERNAME%\AppData\Local\EpicGamesLauncher\Saved\Logs
-del /s /Q /f "%EpicDir%"> nul
-rd /s /q "%EpicDir%"> nul
-
-set EbicDir=C:\Users\%USERNAME%\AppData\Local\EpicGamesLauncher\Saved\Crashes
-del /s /Q /f "%EbicDir%"> nul
-rd /s /q "%EbicDir%"> nul
-
 cls
 
 echo Clearing Log Files From The System

@@ -1,0 +1,27 @@
+@echo off
+@rem Debloat Windows & Remove Preinstalled Programs
+PowerShell -Command "Get-AppxPackage *3DBuilder* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Getstarted* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *WindowsAlarms* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *bing* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *MicrosoftOfficeHub* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *OneNote* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *people* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *WindowsPhone* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *SkypeApp* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *solit* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *WindowsSoundRecorder* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *windowscommunicationsapps* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *zune* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *WindowsMaps* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Sway* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *CommsPhone* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Microsoft.Messaging* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Facebook* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Twitter* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Drawboard PDF* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *WindowsFeedbackHub* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *BingWeather* | Remove-AppxPackage"
+PowerShell -Command "Get-AppxPackage *Office.OneNote* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command " $installer = (Get-ChildItem \"$env:ProgramFiles*\Microsoft\Edge\Application\*\Installer\setup.exe\"); if (!$installer) { Write-Host Could not find the installer; } else { & $installer.FullName -uninstall -system-level -verbose-logging -force-uninstall };
+exit

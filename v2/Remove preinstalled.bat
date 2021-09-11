@@ -1,4 +1,3 @@
-@echo off
 @rem Debloat Windows & Remove Preinstalled Programs
 PowerShell -Command "Get-AppxPackage *3DBuilder* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Getstarted* | Remove-AppxPackage"

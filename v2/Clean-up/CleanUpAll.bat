@@ -17,29 +17,6 @@ for /D %%G in ("%SystemRoot%\TEMP*") do RD /S /Q "%%G"
 for /D %%G in ("%SystemDrive%\Users*") do erase /F /S /Q "%%G\AppData\Local\Temp*.*"
 for /D %%G in ("%SystemDrive%\Users*") do RD /S /Q "%%G\AppData\Local\Temp\" 
 
-set BraveDir=C:\Users\%USERNAME%\AppData\Local\BraveSoftware\Brave-Browser\User Data\Default\Code Cache\Js
-del /s /Q /f "%BraveDir%"
-rd /s /q "%BraveDir%"
-
-set AppleDir=C:\ProgramData\Apple\Installer Cache
-del /s /Q /f "%AppleDir%"
-rd /s /q "%AppleDir%"
-
-tasklist /fi "ImageName eq chrome.exe" /fo csv 2>NUL | find /I "chrome.exe">NUL
-if "%ERRORLEVEL%"=="1"     goto:continueclean
-if "%ERRORLEVEL%"=="0"     call :MsgBox "Would you like to close Chrome Browser to clear cache & Temp Files?"  "VBYesNo+VBQuestion" "@SanGraphic"
-    if errorlevel 7 (
-        goto:continueclean
-    ) else if errorlevel 6 (
-        echo YES - Enable
-        taskkill /F /IM chrome.exe /T > nul
-goto:continueclean
-
-:continueclean
-set ChromeDir=C:\Users\%USERNAME%\AppData\Local\Google\Chrome\User Data\Default\Code Cache\Js
-del /s /Q /f "%ChromeDir%"> nul
-rd /s /q "%ChromeDir%"> nul
-
 set FortDir=C:\Users\%USERNAME%\AppData\Local\Fortnitegame\saved\Logs
 del /s /Q /f "%FortDir%"> nul
 rd /s /q "%FortDir%"> nul

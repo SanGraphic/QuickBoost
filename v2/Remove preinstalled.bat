@@ -11,7 +11,6 @@ PowerShell -Command "Get-AppxPackage *SkypeApp* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *solit* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *WindowsSoundRecorder* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *windowscommunicationsapps* | Remove-AppxPackage"
-PowerShell -Command "Get-AppxPackage *zune* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *WindowsMaps* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Sway* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *CommsPhone* | Remove-AppxPackage"
@@ -22,5 +21,4 @@ PowerShell -Command "Get-AppxPackage *Drawboard PDF* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *WindowsFeedbackHub* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *BingWeather* | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage *Office.OneNote* | Remove-AppxPackage"
-PowerShell -ExecutionPolicy Unrestricted -Command " $installer = (Get-ChildItem \"$env:ProgramFiles*\Microsoft\Edge\Application\*\Installer\setup.exe\"); if (!$installer) { Write-Host Could not find the installer; } else { & $installer.FullName -uninstall -system-level -verbose-logging -force-uninstall };
 exit

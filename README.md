@@ -3,8 +3,8 @@
 ![GIF](https://media.discordapp.net/attachments/744536520089796671/979117981147734016/ezgif-5-9322a93fa0.gif?width=895&height=468)
 ## ⚠ MAKE A SYSTEM RESTORE POINT JUST IN CASE ANYTHING GOES WRONG, TUTORIAL [HERE](https://support.microsoft.com/en-us/windows/create-a-system-restore-point-77e02e2a-3298-c869-9974-ef5658ea3be9) ⚠
 
-# [Download](https://github.com/SanGraphic/QuickBoost/releases) 
-# ![Twitter Follow](https://img.shields.io/twitter/follow/sangraphicalt?style=for-the-badge)
+# [Download](https://github.com/SanGraphic/QuickBoost/releases) # ![Twitter Follow](https://img.shields.io/twitter/follow/sangraphicalt?style=for-the-badge)
+
 [Source-code](https://github.com/SanGraphic/QuickBoostSourceCode)
 
 Code Written & Compiled by [@sangraphic](https://twitter.com/sangraphic),

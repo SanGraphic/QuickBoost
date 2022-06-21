@@ -5,7 +5,7 @@
 
 # [Download](https://github.com/SanGraphic/QuickBoost/releases) 
 
-[Source-code](https://github.com/SanGraphic/QuickBoostSourceCode)
+[Source-code](https://github.com/SanGraphic/QuickBoostSourceCode) (Written in C#)
 
 Code Written & Compiled by [@sangraphic](https://twitter.com/sangraphic),
 

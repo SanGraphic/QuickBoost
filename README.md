@@ -62,7 +62,7 @@ Quickboost is a community project, anyone can help grow and improve the program 
 
 ## How to Build from Source? (Simple)
 1. Hold shift + Right click and click Open Powershell window.
-2. type "cd .\QuickBoostSourceCode" without the quotes obvously
+2. type "cd .\QuickBoost" without the quotes obvously
 3. run the following command to build a non-compressed .exe file:
 
 dotnet publish -c Release -o publish -p:PublishReadyToRun=true -p:PublishSingleFile=true --self-contained true -p:IncludeNativeLibrariesForSelfExtract=true
@@ -71,7 +71,7 @@ or this one for a smaller compressed .exe:
 
 dotnet publish -c Release -o publish -p:PublishReadyToRun=true -p:PublishSingleFile=true --self-contained true -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true 
 
-now its in the QuickBoostSourceCode\publish Folder.
+now its in the QuickBoost\publish Folder.
 
 
 

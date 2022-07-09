@@ -5,8 +5,6 @@
 
 # [Download](https://github.com/SanGraphic/QuickBoost/releases) 
 
-[Source-code](https://github.com/SanGraphic/QuickBoostSourceCode) (Written in C#)
-
 Code Written & Compiled by [@sangraphic](https://twitter.com/sangraphic),
 
 Quickboost is a community project, anyone can help grow and improve the program though pull requests!

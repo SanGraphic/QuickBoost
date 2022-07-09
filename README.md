@@ -5,13 +5,12 @@
 
 # [Download](https://github.com/SanGraphic/QuickBoost/releases) 
 
-[Source-code](https://github.com/SanGraphic/QuickBoostSourceCode) (Written in C#)
-
 Code Written & Compiled by [@sangraphic](https://twitter.com/sangraphic),
 
 Quickboost is a community project, anyone can help grow and improve the program though pull requests!
 
 ## Join the [discord](https://discord.gg/aDCPgx9n86) for support and suggestions!
+
 
 ## what does it do? (Simplified Summary)
 
@@ -61,6 +60,18 @@ Quickboost is a community project, anyone can help grow and improve the program 
 
 + more that I don't have the time to write.
 
+## How to Build from Source? (Simple)
+1. Hold shift + Right click and click Open Powershell window.
+2. type "cd .\QuickBoost" without the quotes obvously
+3. run the following command to build a non-compressed .exe file:
+
+dotnet publish -c Release -o publish -p:PublishReadyToRun=true -p:PublishSingleFile=true --self-contained true -p:IncludeNativeLibrariesForSelfExtract=true
+
+or this one for a smaller compressed .exe:
+
+dotnet publish -c Release -o publish -p:PublishReadyToRun=true -p:PublishSingleFile=true --self-contained true -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true 
+
+now its in the QuickBoost\publish Folder.
 
 
 

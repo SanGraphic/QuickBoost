@@ -1,0 +1,2 @@
+E:\Git\QuickBoostSourceCode\publish\QuickBoost.pdb
+E:\Git\QuickBoostSourceCode\publish\QuickBoost.exe

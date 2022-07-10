@@ -1,0 +1,25 @@
+﻿<Page x:Class="QuickBoost.Views.Pages.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuickBoost.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Page1">
+
+    <Grid>
+        <Button Content="Disable PowerThrottling" HorizontalAlignment="Left" Margin="25,59,0,0" VerticalAlignment="Top" Click="Button_Click" Width="363"/>
+        <Button Content="SvcHostSplitThreshold (Memory)" HorizontalAlignment="Left" Margin="393,59,0,0" VerticalAlignment="Top" Click="Button_Click2" Width="363"/>
+        <Button Content="Memory Tweaks" HorizontalAlignment="Left" Margin="25,95,0,0" VerticalAlignment="Top" Click="Button_Click3" Width="363"/>
+        <Button Content="HardwareDataQueueSize (Latency)" HorizontalAlignment="Left" Margin="393,95,0,0" VerticalAlignment="Top" Click="Button_Click4" Width="363"/>
+        <Button Content="BCD Tweaks (Latency)" HorizontalAlignment="Left" Margin="25,131,0,0" VerticalAlignment="Top" Click="Button_Click5" Width="363"/>
+        <Label Content="GPU Options" HorizontalAlignment="Left" Margin="25,195,0,0" VerticalAlignment="Top"/>
+        <Button Content="Disable Preemption" HorizontalAlignment="Left" Margin="25,220,0,0" VerticalAlignment="Top" Click="DisablePreemption" Width="164"/>
+        <Button Content="Enable Preemption" HorizontalAlignment="Left" Margin="25,256,0,0" VerticalAlignment="Top" Click="EnablePreemption" Width="164"/>
+        <Label Content="Nvidia Highest P-State" HorizontalAlignment="Left" Margin="219,195,0,0" VerticalAlignment="Top"/>
+        <Button Content="Enable" HorizontalAlignment="Left" Margin="219,220,0,0" VerticalAlignment="Top" Click="PstateH" Width="168"/>
+        <Button Content="Disable" HorizontalAlignment="Left" Margin="219,256,0,0" VerticalAlignment="Top" Click="PstateL" Width="168"/>
+
+    </Grid>
+</Page>

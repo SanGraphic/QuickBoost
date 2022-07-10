@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+	<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <Nullable>enable</Nullable>
+    <LangVersion>10.0</LangVersion>
+    <UseWPF>true</UseWPF>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>quick.ico</ApplicationIcon>
+    <Version>2.0.9</Version>
+    <AssemblyVersion>2.0.9</AssemblyVersion>
+    <FileVersion>2.0.9</FileVersion>
+    <PackageReleaseNotes>Complete Redesign</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Views\File.png" />
+    <None Remove="Views\File2.png" />
+    <None Remove="Views\Icon2.ico" />
+    <None Remove="Views\Pages\MadeInKurdistan.png" />
+    <None Remove="Views\Pages\MadeInKurdistan1.png" />
+    <None Remove="Views\Pages\must have.png" />
+    <None Remove="Views\Pages\twitter-png-twitter-icon-1600.png" />
+    <None Remove="WPFUI_TaskNav.vstemplate" />
+    <None Remove="__PreviewImage.png" />
+    <None Remove="__TemplateIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="quick.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WPF-UI" Version="1.2.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Views\File.png" />
+    <Resource Include="Views\File2.png" />
+    <Resource Include="Views\Icon2.ico" />
+    <Resource Include="Views\Pages\MadeInKurdistan.png" />
+    <Resource Include="Views\Pages\MadeInKurdistan1.png" />
+    <Resource Include="Views\Pages\must have.png" />
+    <Resource Include="Views\Pages\twitter-png-twitter-icon-1600.png" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,23 @@
+﻿<Page x:Class="QuickBoost.Views.Pages.Downloads"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuickBoost.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Downloads">
+
+    <Grid>
+        <Button Content="Apply Nvidia Control Panel Tweaks" HorizontalAlignment="Left" Margin="384,95,0,0" VerticalAlignment="Top" Width="322" Click="Button_Click"/>
+        <Button Content="Install NVCleanstall (Debloated Drivers)" HorizontalAlignment="Left" Margin="384,131,0,0" VerticalAlignment="Top" Width="322" Click="Button_Click1"/>
+        <Label Content="Nvidia GPU Options" HorizontalAlignment="Left" Margin="384,65,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button Content="Install MSI Utility (Latency)" HorizontalAlignment="Left" Margin="24,95,0,0" VerticalAlignment="Top" Width="322" Click="Button_Click2"/>
+        <Label Content="Recommended Programs" HorizontalAlignment="Left" Margin="24,65,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button Content="Install Autoruns (Disable Start-up services)" HorizontalAlignment="Left" Margin="24,131,0,0" VerticalAlignment="Top" Width="322" Click="Button_Click3"/>
+        <Button Content="Install Discord" HorizontalAlignment="Left" Margin="24,207,0,0" VerticalAlignment="Top" Width="322" Click="Button_Click4"/>
+        <Label Content="Essential Programs" HorizontalAlignment="Left" Margin="24,182,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button Content="Install 7-Zip" HorizontalAlignment="Left" Margin="24,243,0,0" VerticalAlignment="Top" Width="322" Click="Install7Zip"/>
+        <Button Content="Install VLC Media-Player" HorizontalAlignment="Left" Margin="24,279,0,0" VerticalAlignment="Top" Width="322" Click="installVLC"/>
+    </Grid>
+</Page>

@@ -5,7 +5,7 @@
 
 # [Download](https://github.com/SanGraphic/QuickBoost/releases) 
 
-Code Written & Compiled by [@sangraphic](https://twitter.com/sangraphic),
+Code Written & Compiled by [@sangraphic](https://twitter.com/sangraphicalt),
 
 Quickboost is a community project, anyone can help grow and improve the program though pull requests!
 

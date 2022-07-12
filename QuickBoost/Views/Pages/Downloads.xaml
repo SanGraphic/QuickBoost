@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Downloads">
 
-    <Grid>
+    <Grid Margin="0,0,0,-116">
         <Button Content="Apply Nvidia Control Panel Tweaks" HorizontalAlignment="Left" Margin="384,95,0,0" VerticalAlignment="Top" Width="322" Click="Button_Click"/>
         <Button Content="NVCleanstall (Debloated Drivers)" HorizontalAlignment="Left" Margin="384,131,0,0" VerticalAlignment="Top" Width="322" Click="Button_Click1"/>
         <Label Content="Nvidia GPU Options" HorizontalAlignment="Left" Margin="384,65,0,0" VerticalAlignment="Top" FontSize="16"/>
@@ -21,9 +21,9 @@
         <Button Content="VLC Media-Player" HorizontalAlignment="Left" Margin="24,279,0,0" VerticalAlignment="Top" Width="322" Click="installVLC"/>
         <Button Content="Google Chrome" HorizontalAlignment="Left" Margin="24,315,0,0" VerticalAlignment="Top" Width="158" Click="installChrome" Height="28"/>
         <Button Content="Mozilla Firefox" HorizontalAlignment="Left" Margin="185,315,0,0" VerticalAlignment="Top" Width="158" Click="InstallFirefox" Height="28"/>
-        <Button Content="Steam" HorizontalAlignment="Left" Margin="185,381,0,0" VerticalAlignment="Top" Width="158" Click="InstallSteam" Height="29"/>
+        <Button Content="Steam" HorizontalAlignment="Left" Margin="185,382,0,0" VerticalAlignment="Top" Width="158" Click="InstallSteam" Height="29"/>
         <Button Content="Epic Games Launcher" HorizontalAlignment="Left" Margin="24,382,0,0" VerticalAlignment="Top" Width="158" Click="InstallEpic" FontSize="11"/>
         <Button Content="OPERA-GX" HorizontalAlignment="Left" Margin="185,348,0,0" VerticalAlignment="Top" Width="158" Click="InstallOpera" Height="28"/>
-        <Button Content="Brave Browser" HorizontalAlignment="Left" Margin="24,349,0,0" VerticalAlignment="Top" Width="158" Click="InstallBrave" Height="28"/>
+        <Button Content="Brave Browser" HorizontalAlignment="Left" Margin="24,348,0,0" VerticalAlignment="Top" Width="158" Click="InstallBrave" Height="28"/>
     </Grid>
 </Page>

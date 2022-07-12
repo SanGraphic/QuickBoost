@@ -133,5 +133,77 @@ namespace QuickBoost.Views.Pages
             string message = "Transparency Effects Disabled!";
             MessageBox.Show(message);
         }
+
+        private void Smalltaskbar(object sender, RoutedEventArgs e)
+        {
+            Registry.SetValue("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "TaskbarSi", "00000000", RegistryValueKind.DWord);
+            string message = "Small Taskbar Size Applied!";
+            MessageBox.Show(message);
+            Process p = new Process();
+            foreach (Process exe in Process.GetProcesses())
+            {
+                if (exe.ProcessName == "explorer")
+                    exe.Kill();
+            }
+            Process.Start("explorer.exe");
+        }
+
+        private void Midtaskbar(object sender, RoutedEventArgs e)
+        {
+            Registry.SetValue("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "TaskbarSi", "00000001", RegistryValueKind.DWord);
+            string message = "Medium Taskbar Size Applied!";
+            MessageBox.Show(message);
+            Process p = new Process();
+            foreach (Process exe in Process.GetProcesses())
+            {
+                if (exe.ProcessName == "explorer")
+                    exe.Kill();
+            }
+            Process.Start("explorer.exe");
+        }
+
+        private void Largetaskbar(object sender, RoutedEventArgs e)
+        {
+            Registry.SetValue("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "TaskbarSi", "00000002", RegistryValueKind.DWord);
+            string message = "Large Taskbar Size Applied!";
+            MessageBox.Show(message);
+            Process p = new Process();
+            foreach (Process exe in Process.GetProcesses())
+            {
+                if (exe.ProcessName == "explorer")
+                    exe.Kill();
+            }
+            Process.Start("explorer.exe");
+        }
+
+        private void WidgetsOn(object sender, RoutedEventArgs e)
+        {
+            Registry.SetValue("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "TaskbarDa", "00000001", RegistryValueKind.DWord);
+            string message = "Widgets Button Shown!";
+            MessageBox.Show(message);
+            
+        }
+
+        private void WidgetsOFF(object sender, RoutedEventArgs e)
+        {
+            Registry.SetValue("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "TaskbarDa", "00000000", RegistryValueKind.DWord);
+            string message = "Widgets Button Hidden!";
+            MessageBox.Show(message);
+           
+        }
+
+        private void ChatsOn(object sender, RoutedEventArgs e)
+        {
+            Registry.SetValue("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "TaskbarMn", "00000001", RegistryValueKind.DWord);
+            string message = "Chat Button Shown!";
+            MessageBox.Show(message);
+        }
+
+        private void ChatsOFF(object sender, RoutedEventArgs e)
+        {
+            Registry.SetValue("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced", "TaskbarMn", "00000000", RegistryValueKind.DWord);
+            string message = "Chat Button Hidden!";
+            MessageBox.Show(message);
+        }
     }
 }

@@ -27,6 +27,15 @@
         <Button Content="Disable Clipboard History" HorizontalAlignment="Left" Margin="185,248,0,0" Width="156" Click="ClipOFF" VerticalAlignment="Top" FontSize="12"/>
         <Button Content="Enable Transparency Effects" HorizontalAlignment="Left" Margin="24,283,0,0" Width="156" Click="TransparencyON" VerticalAlignment="Top" FontSize="11"/>
         <Button Content="Disable Transparency Effects" HorizontalAlignment="Left" Margin="185,283,0,0" Width="156" Click="TransparencyOFF" VerticalAlignment="Top" FontSize="11"/>
+        <Label Content="Windows 11 Taskbar" HorizontalAlignment="Left" Margin="378,182,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button Content="Small Taskbar" HorizontalAlignment="Left" Margin="378,212,0,0" VerticalAlignment="Top" Width="88" Click="Smalltaskbar" FontSize="12"/>
+        <Button Content="Medium Taskbar " HorizontalAlignment="Left" Margin="471,212,0,0" VerticalAlignment="Top" Width="103" Click="Midtaskbar" FontSize="12"/>
+        <Button Content="Large Taskbar " HorizontalAlignment="Left" Margin="579,212,0,0" VerticalAlignment="Top" Width="121" Click="Largetaskbar" FontSize="12"/>
+        <Button Content="Large Taskbar " HorizontalAlignment="Left" Margin="579,212,0,0" VerticalAlignment="Top" Width="121" Click="Largetaskbar" FontSize="12"/>
+        <Button Content="Show Widgets Button" HorizontalAlignment="Left" Margin="378,249,0,0" Width="161" Click="WidgetsOn" VerticalAlignment="Top" FontSize="11"/>
+        <Button Content="Hide Widgets Button" HorizontalAlignment="Left" Margin="544,249,0,0" Width="156" Click="WidgetsOFF" VerticalAlignment="Top" FontSize="11"/>
+        <Button Content="Show Chat Button" HorizontalAlignment="Left" Margin="378,283,0,0" Width="161" Click="ChatsOn" VerticalAlignment="Top" FontSize="11"/>
+        <Button Content="Hide Chat Button" HorizontalAlignment="Left" Margin="544,283,0,0" Width="156" Click="ChatsOFF" VerticalAlignment="Top" FontSize="11"/>
 
 
 

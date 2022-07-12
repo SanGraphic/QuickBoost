@@ -115,66 +115,75 @@ namespace QuickBoost.Views.Pages
 
         private void Button_Click4(object sender, RoutedEventArgs e)
         {
-            WebClient webClient = new WebClient();
-            webClient.DownloadFile("https://discord.com/api/downloads/distributions/app/installers/latest?channel=stable&platform=win&arch=x86", "DiscordSetup.exe");
-            File.SetAttributes(@"DiscordSetup.exe", File.GetAttributes(@"DiscordSetup.exe") | FileAttributes.Hidden);
-
-            Process process = new Process();
-            process.StartInfo.FileName = "DiscordSetup.exe";
-            process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            process.StartInfo.CreateNoWindow = false;
-            process.Start();
-            process.WaitForExit(); // Wait  for the process to exit.
-
-            // Delete file after it finishes
-            if (File.Exists(@"DiscordSetup.exe"))
-            {
-                File.Delete(@"DiscordSetup.exe");
-            }
+            ProcessStartInfo installProgram = new ProcessStartInfo("Powershell.exe");
+            installProgram.UseShellExecute = false;
+            installProgram.Arguments = "winget install -e --id Discord.Discord";
+            Process.Start(installProgram).WaitForExit();
         }
 
         private void Install7Zip(object sender, RoutedEventArgs e)
         {
-            WebClient webClient = new WebClient();
-            webClient.DownloadFile("https://www.7-zip.org/a/7z2200-x64.exe", "7z2200-x64.exe");
-            File.SetAttributes(@"7z2200-x64.exe", File.GetAttributes(@"7z2200-x64.exe") | FileAttributes.Hidden);
-
-            Process process = new Process();
-            // Start Process properties.
-            process.StartInfo.FileName = "7z2200-x64.exe";
-            process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            process.StartInfo.CreateNoWindow = true;
-            process.Start();
-            process.WaitForExit(); // Wait  for the process to exit.
-
-            // Delete file after it finishes
-            if (File.Exists(@"7z2200-x64.exe"))
-            {
-                File.Delete(@"7z2200-x64.exe");
-            }
+            ProcessStartInfo installProgram = new ProcessStartInfo("Powershell.exe");
+            installProgram.UseShellExecute = false;
+            installProgram.Arguments = "winget install -e --id 7zip.7zip";
+            Process.Start(installProgram).WaitForExit();
         }
 
         private void installVLC(object sender, RoutedEventArgs e)
         {
-            string message = "This might take awhile";
-            MessageBox.Show(message);
-            WebClient webClient = new WebClient();
-            webClient.DownloadFile("https://mirror.rasanegar.com/videolan/vlc/3.0.17.4/win64/vlc-3.0.17.4-win64.exe", "vlcwin64.exe");
-            File.SetAttributes(@"vlcwin64.exe", File.GetAttributes(@"vlcwin64.exe") | FileAttributes.Hidden);
+            
+            ProcessStartInfo installProgram = new ProcessStartInfo("Powershell.exe");
+            installProgram.UseShellExecute = false;
+            installProgram.Arguments = "winget install -e --id VideoLAN.VLC";
+            Process.Start(installProgram).WaitForExit();
+        }
 
-            Process process = new Process();
-            // Start Process properties.
-            process.StartInfo.FileName = "vlcwin64.exe";
-            process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            process.StartInfo.CreateNoWindow = true;
-            process.Start();
-            process.WaitForExit(); // Wait  for the process to exit.
+        private void installChrome(object sender, RoutedEventArgs e)
+        {
+            ProcessStartInfo installProgram = new ProcessStartInfo("Powershell.exe");
+            installProgram.UseShellExecute = false;
+            installProgram.Arguments = "winget install -e --id Google.Chrome";
+            Process.Start(installProgram).WaitForExit();
+        }
 
-            // Delete file after it finishes
-            if (File.Exists(@"vlcwin64.exe"))
-            {
-                File.Delete(@"vlcwin64.exe");
-            }
+        private void InstallFirefox(object sender, RoutedEventArgs e)
+        {
+            ProcessStartInfo installProgram = new ProcessStartInfo("Powershell.exe");
+            installProgram.UseShellExecute = false;
+            installProgram.Arguments = "winget install -e --id Mozilla.Firefox";
+            Process.Start(installProgram).WaitForExit();
+        }
+
+        private void InstallSteam(object sender, RoutedEventArgs e)
+        {
+            ProcessStartInfo installProgram = new ProcessStartInfo("Powershell.exe");
+            installProgram.UseShellExecute = false;
+            installProgram.Arguments = "winget install -e --id Valve.Steam";
+            Process.Start(installProgram).WaitForExit();
+        }
+
+        private void InstallEpic(object sender, RoutedEventArgs e)
+        {
+            ProcessStartInfo installProgram = new ProcessStartInfo("Powershell.exe");
+            installProgram.UseShellExecute = false;
+            installProgram.Arguments = "winget install -e --id EpicGames.EpicGamesLauncher";
+            Process.Start(installProgram).WaitForExit();
+        }
+
+        private void InstallOpera(object sender, RoutedEventArgs e)
+        {
+            ProcessStartInfo installProgram = new ProcessStartInfo("Powershell.exe");
+            installProgram.UseShellExecute = false;
+            installProgram.Arguments = "winget install -e --id Opera.OperaGX";
+            Process.Start(installProgram).WaitForExit();
+        }
+
+        private void InstallBrave(object sender, RoutedEventArgs e)
+        {
+            ProcessStartInfo installProgram = new ProcessStartInfo("Powershell.exe");
+            installProgram.UseShellExecute = false;
+            installProgram.Arguments = "winget install -e --id BraveSoftware.BraveBrowser";
+            Process.Start(installProgram).WaitForExit();
         }
     }
 }

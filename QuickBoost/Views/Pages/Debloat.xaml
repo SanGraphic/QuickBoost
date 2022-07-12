@@ -1,23 +1,32 @@
-﻿<Page
+﻿<Page x:Class="QuickBoost.Views.Pages.Debloat"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:QuickBoost.Views.Pages"
-      xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml" x:Class="QuickBoost.Views.Pages.Debloat"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Debloat">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:QuickBoost.Views.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="Debloat"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
 
     <Grid>
-        <Button Content="Old (Win 10) Style Context Menu" HorizontalAlignment="Left" Margin="364,95,0,0" VerticalAlignment="Top" Width="322" Click="OldContext"/>
-        <Label Content="Windows 11 Options" HorizontalAlignment="Left" Margin="364,65,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="2.867,4.015"/>
-        <Button Content="New (Win 11) Style Context Menu" HorizontalAlignment="Left" Margin="364,131,0,0" VerticalAlignment="Top" Width="322" Click="NewContext"/>
+        <Button Content="Old (Win 10) Style Context Menu" HorizontalAlignment="Left" Margin="378,131,0,0" VerticalAlignment="Top" Width="322" Click="OldContext"/>
+        <Label Content="Windows 11 Options" HorizontalAlignment="Left" Margin="378,65,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="2.867,4.015"/>
+        <Button Content="New (Win 11) Style Context Menu" HorizontalAlignment="Left" Margin="378,95,0,0" VerticalAlignment="Top" Width="322" Click="NewContext"/>
         <Label Content="File And Folders Explorer Options" HorizontalAlignment="Left" Margin="28,65,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Button Content="Show Hidden Folders" HorizontalAlignment="Left" Margin="24,95,0,0" Width="156" Click="HiddenFolders" VerticalAlignment="Top"/>
         <Button Content="Hide Hidden Folders" HorizontalAlignment="Left" Margin="185,95,0,0" Width="156" Click="HideHiddenFolders" VerticalAlignment="Top"/>
         <Button Content="Show File Extensions" HorizontalAlignment="Left" Margin="24,131,0,0" Width="156" Click="Extensions" VerticalAlignment="Top"/>
         <Button Content="Hide File Extensions" HorizontalAlignment="Left" Margin="185,131,0,0" Width="156" Click="HideExtensions" VerticalAlignment="Top"/>
+        <Button Content="Enable Notifications" HorizontalAlignment="Left" Margin="24,212,0,0" Width="156" Click="EnableNoti" VerticalAlignment="Top"/>
+        <Button Content="Disable Notifications" HorizontalAlignment="Left" Margin="185,212,0,0" Width="156" Click="DisableNoti" VerticalAlignment="Top"/>
+        <Label Content="Windows Settings Options" HorizontalAlignment="Left" Margin="28,182,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button Content="Enable Clipboard History" HorizontalAlignment="Left" Margin="24,248,0,0" Width="156" Click="ClipON" VerticalAlignment="Top" FontSize="12"/>
+        <Button Content="Disable Clipboard History" HorizontalAlignment="Left" Margin="185,248,0,0" Width="156" Click="ClipOFF" VerticalAlignment="Top" FontSize="12"/>
+        <Button Content="Enable Transparency Effects" HorizontalAlignment="Left" Margin="24,283,0,0" Width="156" Click="TransparencyON" VerticalAlignment="Top" FontSize="11"/>
+        <Button Content="Disable Transparency Effects" HorizontalAlignment="Left" Margin="185,283,0,0" Width="156" Click="TransparencyOFF" VerticalAlignment="Top" FontSize="11"/>
 
 
 

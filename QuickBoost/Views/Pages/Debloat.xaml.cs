@@ -81,5 +81,57 @@ namespace QuickBoost.Views.Pages
             string message = "File Extensions invisible now!";
             MessageBox.Show(message);
         }
+
+        private void EnableNoti(object sender, RoutedEventArgs e)
+        {
+            Registry.SetValue("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\PushNotifications", "ToastEnabled", "00000001", RegistryValueKind.DWord);
+
+            ProcessStartInfo restartService = new ProcessStartInfo("powershell.exe");
+            restartService.Arguments = "Restart-Service -DisplayName 'Windows Push Notifications User Service*'";
+            restartService.CreateNoWindow = true;
+            Process.Start(restartService);
+            string message = "Notifications Enabled!";
+            MessageBox.Show(message);
+        }
+
+        private void DisableNoti(object sender, RoutedEventArgs e)
+        {
+            Registry.SetValue("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\PushNotifications", "ToastEnabled", "00000000", RegistryValueKind.DWord);
+
+            ProcessStartInfo restartService = new ProcessStartInfo("powershell.exe");
+            restartService.Arguments = "Restart-Service -DisplayName 'Windows Push Notifications User Service*'";
+            restartService.CreateNoWindow = true;
+            Process.Start(restartService);
+            string message = "Notifications Disabled!";
+            MessageBox.Show(message);
+        }
+
+        private void ClipON(object sender, RoutedEventArgs e)
+        {
+            Registry.SetValue("HKEY_CURRENT_USER\\Software\\Microsoft\\Clipboard", "EnableClipboardHistory", "00000001", RegistryValueKind.DWord);
+            string message = "Clipboard History Enabled!";
+            MessageBox.Show(message);
+        }
+
+        private void ClipOFF(object sender, RoutedEventArgs e)
+        {
+            Registry.SetValue("HKEY_CURRENT_USER\\Software\\Microsoft\\Clipboard", "EnableClipboardHistory", "00000000", RegistryValueKind.DWord);
+            string message = "Clipboard History Disabled!";
+            MessageBox.Show(message);
+        }
+
+        private void TransparencyON(object sender, RoutedEventArgs e)
+        {
+            Registry.SetValue("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", "EnableTransparency", "00000001", RegistryValueKind.DWord);
+            string message = "Transparency Effects Enabled!";
+            MessageBox.Show(message);
+        }
+
+        private void TransparencyOFF(object sender, RoutedEventArgs e)
+        {
+            Registry.SetValue("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", "EnableTransparency", "00000000", RegistryValueKind.DWord);
+            string message = "Transparency Effects Disabled!";
+            MessageBox.Show(message);
+        }
     }
 }

@@ -10,14 +10,20 @@
 
     <Grid>
         <Button Content="Apply Nvidia Control Panel Tweaks" HorizontalAlignment="Left" Margin="384,95,0,0" VerticalAlignment="Top" Width="322" Click="Button_Click"/>
-        <Button Content="Install NVCleanstall (Debloated Drivers)" HorizontalAlignment="Left" Margin="384,131,0,0" VerticalAlignment="Top" Width="322" Click="Button_Click1"/>
+        <Button Content="NVCleanstall (Debloated Drivers)" HorizontalAlignment="Left" Margin="384,131,0,0" VerticalAlignment="Top" Width="322" Click="Button_Click1"/>
         <Label Content="Nvidia GPU Options" HorizontalAlignment="Left" Margin="384,65,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button Content="Install MSI Utility (Latency)" HorizontalAlignment="Left" Margin="24,95,0,0" VerticalAlignment="Top" Width="322" Click="Button_Click2"/>
+        <Button Content="MSI Utility (Latency)" HorizontalAlignment="Left" Margin="24,95,0,0" VerticalAlignment="Top" Width="322" Click="Button_Click2"/>
         <Label Content="Recommended Programs" HorizontalAlignment="Left" Margin="24,65,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button Content="Install Autoruns (Disable Start-up services)" HorizontalAlignment="Left" Margin="24,131,0,0" VerticalAlignment="Top" Width="322" Click="Button_Click3"/>
-        <Button Content="Install Discord" HorizontalAlignment="Left" Margin="24,207,0,0" VerticalAlignment="Top" Width="322" Click="Button_Click4"/>
+        <Button Content="Autoruns (Disable Start-up services)" HorizontalAlignment="Left" Margin="24,131,0,0" VerticalAlignment="Top" Width="322" Click="Button_Click3"/>
+        <Button Content="Discord" HorizontalAlignment="Left" Margin="24,207,0,0" VerticalAlignment="Top" Width="322" Click="Button_Click4"/>
         <Label Content="Essential Programs" HorizontalAlignment="Left" Margin="24,182,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Button Content="Install 7-Zip" HorizontalAlignment="Left" Margin="24,243,0,0" VerticalAlignment="Top" Width="322" Click="Install7Zip"/>
-        <Button Content="Install VLC Media-Player" HorizontalAlignment="Left" Margin="24,279,0,0" VerticalAlignment="Top" Width="322" Click="installVLC"/>
+        <Button Content="7-Zip Package manager" HorizontalAlignment="Left" Margin="24,243,0,0" VerticalAlignment="Top" Width="322" Click="Install7Zip"/>
+        <Button Content="VLC Media-Player" HorizontalAlignment="Left" Margin="24,279,0,0" VerticalAlignment="Top" Width="322" Click="installVLC"/>
+        <Button Content="Google Chrome" HorizontalAlignment="Left" Margin="24,315,0,0" VerticalAlignment="Top" Width="158" Click="installChrome" Height="28"/>
+        <Button Content="Mozilla Firefox" HorizontalAlignment="Left" Margin="185,315,0,0" VerticalAlignment="Top" Width="158" Click="InstallFirefox" Height="28"/>
+        <Button Content="Steam" HorizontalAlignment="Left" Margin="185,381,0,0" VerticalAlignment="Top" Width="158" Click="InstallSteam" Height="29"/>
+        <Button Content="Epic Games Launcher" HorizontalAlignment="Left" Margin="24,382,0,0" VerticalAlignment="Top" Width="158" Click="InstallEpic" FontSize="11"/>
+        <Button Content="OPERA-GX" HorizontalAlignment="Left" Margin="185,348,0,0" VerticalAlignment="Top" Width="158" Click="InstallOpera" Height="28"/>
+        <Button Content="Brave Browser" HorizontalAlignment="Left" Margin="24,349,0,0" VerticalAlignment="Top" Width="158" Click="InstallBrave" Height="28"/>
     </Grid>
 </Page>

@@ -1066,3 +1066,5 @@ C:\Users\san\Documents\GitHub\QuickBoost\QuickBoost\QuickBoost\obj\Debug\net6.0-
 C:\Users\san\Documents\GitHub\QuickBoost\QuickBoost\QuickBoost\obj\Debug\net6.0-windows\win-x64\QuickBoost.pdb
 C:\Users\san\Documents\GitHub\QuickBoost\QuickBoost\QuickBoost\obj\Debug\net6.0-windows\win-x64\QuickBoost.genruntimeconfig.cache
 C:\Users\san\Documents\GitHub\QuickBoost\QuickBoost\QuickBoost\obj\Debug\net6.0-windows\win-x64\ref\QuickBoost.dll
+C:\Users\san\Documents\GitHub\QuickBoost\QuickBoost\QuickBoost\obj\Debug\net6.0-windows\win-x64\Views\Pages\Debloat.g.cs
+C:\Users\san\Documents\GitHub\QuickBoost\QuickBoost\QuickBoost\obj\Debug\net6.0-windows\win-x64\Views\Pages\Debloat.baml

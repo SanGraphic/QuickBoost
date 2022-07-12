@@ -106,7 +106,7 @@
             Padding="24,6"
             HorizontalAlignment="Left"
             Content="Enable Auto-complete (Run Dialog)"
-            Click="Button_AutoComplete" Margin="25,339,0,0" Width="363" Height="30" VerticalAlignment="Top"
+            Click="Button_AutoComplete" Margin="393,166,0,0" Width="363" Height="30" VerticalAlignment="Top"
             
 
         />

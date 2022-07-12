@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\san\Documents\GitHub\QuickBoost\QuickBoost\QuickBoost\App.xaml
-684629932
+7-661970352
 11880444176
-101152087060
+111503941340
 196-553477856
-Views\Container.xaml;Views\Pages\Cleanup.xaml;Views\Pages\Dashboard.xaml;Views\Pages\Downloads.xaml;Views\Pages\Page1.xaml;Views\Pages\Settings.xaml;
+Views\Container.xaml;Views\Pages\Cleanup.xaml;Views\Pages\Dashboard.xaml;Views\Pages\Debloat.xaml;Views\Pages\Downloads.xaml;Views\Pages\Page1.xaml;Views\Pages\Settings.xaml;
 
-False
+True
 

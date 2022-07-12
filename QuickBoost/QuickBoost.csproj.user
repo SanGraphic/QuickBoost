@@ -10,6 +10,9 @@
     <Compile Update="Views\Pages\Cleanup.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Pages\Debloat.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Pages\Downloads.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,6 +28,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Pages\Dashboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Pages\Debloat.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Pages\Downloads.xaml">

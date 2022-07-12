@@ -47,7 +47,7 @@
         <Label Content="&lt;- Removes all log files" HorizontalAlignment="Left" Margin="307,115,0,0" VerticalAlignment="Top"/>
         <Label Content="&lt;- Runs the Windows Clean Manager provided by microsoft" HorizontalAlignment="Left" Margin="307,156,0,0" VerticalAlignment="Top"/>
         <Label Content="&lt;- Runs everything mentioned above" HorizontalAlignment="Left" Margin="307,196,0,0" VerticalAlignment="Top"/>
-        <ProgressBar HorizontalAlignment="Left" Height="35" Margin="24,233,0,0" VerticalAlignment="Top" Width="265" RenderTransformOrigin="0.5,0.5" ValueChanged="ProgressBar_ValueChanged" Minimum="10" LargeChange="1.3" Value="50" IsIndeterminate="True" Maximum="10">
+        <ProgressBar HorizontalAlignment="Left" Height="38" Margin="24,233,0,0" VerticalAlignment="Top" Width="265" RenderTransformOrigin="0.5,0.5" ValueChanged="ProgressBar_ValueChanged" Minimum="10" LargeChange="1.3" Value="50" IsIndeterminate="True" Maximum="10">
             <ProgressBar.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

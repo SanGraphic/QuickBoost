@@ -50,6 +50,12 @@
                     Page="{x:Type pages:Downloads}"
                     PageTag="install" />
 
+                <wpfui:NavigationItem
+                    Content="Windows"
+                    Icon="WindowSettings20"
+                    Page="{x:Type pages:Debloat}"
+                    PageTag="Debloat" />
+
             </wpfui:NavigationCompact.Items>
             <wpfui:NavigationCompact.Footer>
                 <wpfui:NavigationItem

@@ -1,9 +1,10 @@
 1. Hold shift + Right click and click Open Powershell window.
-2. type "cd .\QuickBoostSourceCode\" without the qoutes obv
+2. type "cd .\QuickBoost\" without the qoutes obv
 3. run the following command:
 
 dotnet publish -c Release -o publish -p:PublishReadyToRun=true -p:PublishSingleFile=true --self-contained true -p:IncludeNativeLibrariesForSelfExtract=true
 or
 dotnet publish -c Release -o publish -p:PublishReadyToRun=true -p:PublishSingleFile=true --self-contained true -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true
 now its in the \QuickBoostSourceCode\publish directory.
-easy
+
+done.

@@ -9,7 +9,7 @@
 
 Code Written & Compiled by [@SanGraphicAlt](https://twitter.com/sangraphicalt),
 
-Quickboost is a community project, anyone can help grow and improve the program though pull requests!
+Quickboost is a community project, anyone can help grow and improve the program through pull requests!
 
 ## Join the [discord](https://discord.gg/aDCPgx9n86) for support and suggestions!
 

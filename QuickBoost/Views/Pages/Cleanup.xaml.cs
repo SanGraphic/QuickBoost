@@ -7,6 +7,9 @@ using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Threading;
+
 namespace QuickBoost.Views.Pages
 {
     /// <summary>
@@ -18,6 +21,11 @@ namespace QuickBoost.Views.Pages
         {
             InitializeComponent();
         }
+        [DllImport("kernel32.dll")]
+        private static extern bool AllocConsole();
+
+        [DllImport("kernel32.dll")]
+        private static extern bool FreeConsole();
 
         private void Button_Click1(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -43,24 +51,29 @@ namespace QuickBoost.Views.Pages
 
         private void Button_Click2(object sender, System.Windows.RoutedEventArgs e)
         {
-            WebClient webClient = new WebClient();
-            webClient.DownloadFile("https://raw.githubusercontent.com/SanGraphic/QuickBoost/main/v2/Clean-up/ClearLogFiles.bat", "ClearLogFiles.bat");
-            File.SetAttributes(@"ClearLogFiles.bat", File.GetAttributes(@"ClearLogFiles.bat") | FileAttributes.Hidden);
+           
 
-            Process process = new Process();
-            // Start Process properties.
-            process.StartInfo.FileName = "ClearLogFiles.bat";
-            process.StartInfo.Arguments = "-n";
-            process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            process.StartInfo.CreateNoWindow = false;
-            process.Start();
-            process.WaitForExit(); // Wait  for the process to exit.
+            
+                WebClient webClient = new WebClient();
+                webClient.DownloadFile("https://raw.githubusercontent.com/SanGraphic/QuickBoost/main/v2/Clean-up/ClearLogFiles.bat", "ClearLogFiles.bat");
+                File.SetAttributes(@"ClearLogFiles.bat", File.GetAttributes(@"ClearLogFiles.bat") | FileAttributes.Hidden);
 
-            // Delete file after it finishes
-            if (File.Exists(@"ClearLogFiles.bat"))
-            {
-                File.Delete(@"ClearLogFiles.bat");
-            }
+                Process process = new Process();
+                // Start Process properties.
+                process.StartInfo.FileName = "ClearLogFiles.bat";
+                process.StartInfo.Arguments = "-n";
+                process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                process.StartInfo.CreateNoWindow = false;
+                process.Start();
+                process.WaitForExit(); // Wait  for the process to exit.
+
+                // Delete file after it finishes
+                if (File.Exists(@"ClearLogFiles.bat"))
+                {
+                    File.Delete(@"ClearLogFiles.bat");
+                }
+            
+            
         }
 
         private void Button_Click3(object sender, RoutedEventArgs e)

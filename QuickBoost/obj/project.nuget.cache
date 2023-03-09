@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "yOXZGYWV7+VHkg/Q8HqwxtHxVaTBKbLbM3sjV7+CW7c+D0pGco42kzUocy8u8fluH+ofc0kr7fWyweMmmWHwmA==",
+  "dgSpecHash": "XbPdUKcMn0FKkyxHvV5MmKVgCk5gzy5xmU9JJeUqBqLn/Ya8f87EtcqVhiQps1bB4zMC7AblyA+UVgxtpBvvuQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\san\\Documents\\GitHub\\QuickBoost\\QuickBoost\\QuickBoost\\QuickBoost.csproj",
   "expectedPackageFiles": [
@@ -8,8 +8,9 @@
     "C:\\Users\\san\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
     "C:\\Users\\san\\.nuget\\packages\\wpf-ui\\1.2.7\\wpf-ui.1.2.7.nupkg.sha512",
     "C:\\Users\\san\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.5\\microsoft.netcore.app.runtime.win-x64.6.0.5.nupkg.sha512",
+    "C:\\Users\\san\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.5\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.5.nupkg.sha512",
     "C:\\Users\\san\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\6.0.5\\microsoft.aspnetcore.app.runtime.win-x64.6.0.5.nupkg.sha512",
-    "C:\\Users\\san\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.5\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.5.nupkg.sha512"
+    "C:\\Users\\san\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\6.0.5\\microsoft.netcore.app.crossgen2.win-x64.6.0.5.nupkg.sha512"
   ],
   "logs": []
 }

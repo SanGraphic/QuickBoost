@@ -9,6 +9,7 @@
     <UseWPF>true</UseWPF>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>quick.ico</ApplicationIcon>
+	<_SuppressWpfTrimError>true</_SuppressWpfTrimError>
     <Version>2.0.9</Version>
     <AssemblyVersion>2.0.9</AssemblyVersion>
     <FileVersion>2.0.9</FileVersion>

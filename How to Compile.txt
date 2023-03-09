@@ -8,3 +8,8 @@ dotnet publish -c Release -o publish -p:PublishReadyToRun=true -p:PublishSingleF
 now its in the \QuickBoostSourceCode\publish directory.
 
 done.
+
+
+
+dotnet publish -c Release -o publish -p:PublishReadyToRun=true -p:PublishSingleFile=true --self-contained true -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -p:PublishTrimmed=true
+now its in the \QuickBoostSourceCode\publish directory.

@@ -26,7 +26,7 @@
             
 
         />
-        <Label Content="Quickboost 2.9.3 (Early Access)&#xA;" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontWeight="Bold" FontStyle="Normal" FontSize="24"/>
+        <Label Content="Quickboost 2.9.4 by SanGraphic &#xA;" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontWeight="Bold" FontStyle="Normal" FontSize="24"/>
         <Label Content="• Disable Telemetry &amp; Data Collection&#xD;&#xA;• Disable Scheduled Tasks &amp; Bloatwares&#xD;&#xA;• Disable Unnecessary Services&#xD;&#xA;• Disable (most) System Loggings&#xD;&#xA;• Performance &amp; Memory Usage Tweaks&#xD;&#xA;• Remove Temporary Files&#xD;&#xA;• Maintained (almost) daily!" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Height="198" Width="336" FontSize="18" FontWeight="Normal" FontFamily="Segoe UI Variable Text"/>
     </Grid>
 </Page>

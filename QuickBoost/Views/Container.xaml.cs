@@ -33,7 +33,7 @@ namespace QuickBoost.Views
 
             try
             {
-                if (!webClient.DownloadString("https://raw.githubusercontent.com/SanGraphic/QuickBoost/main/v2/version.txt").Contains("2.9.3"))
+                if (!webClient.DownloadString("https://raw.githubusercontent.com/SanGraphic/QuickBoost/main/v2/version.txt").Contains("2.9.4"))
                 {
                     string message = "New Update Available, click OK to Open the download link";
                     MessageBox.Show(message);

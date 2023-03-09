@@ -1,0 +1,2 @@
+C:\Users\san\Documents\GitHub\QuickBoost\QuickBoost\QuickBoost\bin\Release\net6.0-windows\win-x64\publish\QuickBoost.pdb
+C:\Users\san\Documents\GitHub\QuickBoost\QuickBoost\QuickBoost\bin\Release\net6.0-windows\win-x64\publish\QuickBoost.exe

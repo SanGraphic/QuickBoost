@@ -11,7 +11,6 @@ Code Written & Compiled by [@SanGraphic](https://twitter.com/sangraphic)
 
 Quickboost is a community project, anyone can help grow and improve the program through pull requests!
 
-## Join the [discord](https://discord.gg/aDCPgx9n86) for support and suggestions!
 
 
 ## what does it do? (Simplified Summary)

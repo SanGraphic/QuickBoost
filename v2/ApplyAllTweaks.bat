@@ -533,15 +533,15 @@ if errorlevel  1 goto:NV1
 
 
 :NV1
-powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/836340936865742918/nvidiaProfileInspector.exe' -OutFile C:\Windows\nvidiaProfileInspector.exe
-powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/837315087907422228/nvprofile.nip' -OutFile C:\Windows\nvprofile.nip
+owershell -c "Invoke-WebRequest -Uri 'https://github.com/SanGraphic/QuickBoost/raw/main/v2/nvidiaProfileInspector.exe' -OutFile C:\Windows\nvidiaProfileInspector.exe
+powershell -c "Invoke-WebRequest -Uri 'https://github.com/SanGraphic/QuickBoost/raw/main/v2/Base%20Profile.nip' -OutFile C:\Windows\nvprofile.nip
 start "" /wait "C:\Windows\nvidiaProfileInspector.exe" "C:\Windows\nvprofile.nip"
 timeout 2 >nul
 goto :AMD
 
 :NV2
-powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/836340936865742918/nvidiaProfileInspector.exe' -OutFile C:\Windows\nvidiaProfileInspector.exe
-powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/836340587782996038/nvprofile.nip' -OutFile C:\Windows\nvprofile.nip
+owershell -c "Invoke-WebRequest -Uri 'https://github.com/SanGraphic/QuickBoost/raw/main/v2/nvidiaProfileInspector.exe' -OutFile C:\Windows\nvidiaProfileInspector.exe
+powershell -c "Invoke-WebRequest -Uri 'https://github.com/SanGraphic/QuickBoost/raw/main/v2/Base%20Profile.nip' -OutFile C:\Windows\nvprofile.nip
 start "" /wait "C:\Windows\nvidiaProfileInspector.exe" "C:\Windows\nvprofile.nip"
 timeout 2 >nul
 goto :AMD
@@ -570,7 +570,7 @@ echo.
 
 Echo Installing Timer Resolution Service to lower Input Delay.
 echo.
-powershell Invoke-WebRequest "https://cdn.discordapp.com/attachments/460788721789173760/836161440103923732/SetTimerResolutionService.exe" -OutFile "C:\Windows\SetTimerResolutionService.exe"
+powershell Invoke-WebRequest "https://github.com/SanGraphic/QuickBoost/raw/main/v2/SetTimerResolutionService%20(1).exe" -OutFile "C:\Windows\SetTimerResolutionService.exe"
 "C:\Windows\SetTimerResolutionService.exe" -install
 sc start STR
 
@@ -698,10 +698,10 @@ echo.
 cls
 Echo Applying SanGraphic's PowerPlan
 echo.
-powershell -c "Invoke-WebRequest -Uri 'https://cdn.discordapp.com/attachments/460788721789173760/836157669298667570/SanGraphicPOWERPLAN.pow' -OutFile C:\Windows\SanGraphicPOWERPLAN.pow
-powercfg -import "C:\Windows\SanGraphicPOWERPLAN.pow" f42fe57c-e762-287e-984a-4e9613d9e9d3
+powershell -c "Invoke-WebRequest -Uri 'https://github.com/SanGraphic/QuickBoost/raw/main/v2/Adamx's%20Power%20Plan.pow' -OutFile C:\Windows\SanGraphicPOWERPLAN.pow
+powercfg -import "C:\Windows\SanGraphicPOWERPLAN.pow" 945fe57c-e762-487e-984a-4e9213d9e9d7
 del /f "C:\Windows\SanGraphicPOWERPLAN.pow"
-powercfg -SETACTIVE "f42fe57c-e762-287e-984a-4e9613d9e9d3"
+powercfg -SETACTIVE "945fe57c-e762-487e-984a-4e9213d9e9d7"
 
 
 goto :end
